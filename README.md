@@ -1,4 +1,3 @@
-# PJN
-Przetwarzanie języka naturalnego
+# Project 1 
 
-Każdy lab jest na osobnym branchu
+Parser i Strona
