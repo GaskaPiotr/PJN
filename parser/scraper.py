@@ -1,6 +1,8 @@
 import time
 import logging
+from datetime import datetime
 from urllib.parse import urljoin
+import requests
 from bs4 import BeautifulSoup
 import pandas as pd
 from selenium import webdriver
@@ -19,9 +21,45 @@ logging.basicConfig(
     encoding='utf-8'
 )
 
-def run_scraper(base_url: str, headless: bool = True):
+def save_error_diagnostic(driver, error_type: str):
+    timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    screenshot_name = f"error_{error_type}_{timestamp}.png"
+    source_name = f"error_{error_type}_{timestamp}.html"
+    
+    try:
+        driver.save_screenshot(screenshot_name)
+        with open(source_name, "w", encoding="utf-8") as f:
+            f.write(driver.page_source)
+        logging.info(f"Diagnostic dump saved: {screenshot_name}, {source_name}")
+    except Exception as exc:
+        logging.error(f"Failed to capture error diagnostic: {exc}")
+
+def compare_raw_vs_dom(url: str, dom_record_count: int):
+    try:
+        resp = requests.get(url)
+        raw_soup = BeautifulSoup(resp.text, "lxml")
+        
+        raw_table_items = len(raw_soup.select("table#products-table tbody tr.product-row"))
+        raw_card_items = len(raw_soup.select("#products-container article.product-card"))
+        raw_total = raw_table_items + raw_card_items
+        
+        comparison_text = (
+            f"\n--- RAW HTML vs DOM COMPARISON ---\n"
+            f"Raw HTML (without JS / requests): {raw_total} records found.\n"
+            f"Rendered DOM (with Selenium / JS executed): {dom_record_count} records found.\n"
+            f"Conclusion: Dynamic rendering injected {dom_record_count - raw_total} records via JavaScript fetch."
+        )
+        print(comparison_text)
+        logging.info(comparison_text)
+    except Exception as exc:
+        logging.error(f"Failed to compare raw HTML vs DOM: {exc}")
+
+def run_scraper(base_url: str, headless: bool = True) -> tuple[float, int]:
     start_time = time.time()
-    logging.info(f"Starting scraping task for {base_url} (headless={headless})")
+    pages_visited_count = 0
+    errors_count = 0
+
+    logging.info(f"=== Starting run (headless={headless}) ===")
 
     chrome_options = Options()
     if headless:
@@ -37,14 +75,16 @@ def run_scraper(base_url: str, headless: bool = True):
         for attempt in range(max_retries):
             try:
                 driver.get(base_url)
-                # Explicit wait for page initialization (Level 5.0 mandatory)
+                pages_visited_count += 1
                 WebDriverWait(driver, 10).until(
                     EC.presence_of_element_located((By.TAG_NAME, "body"))
                 )
                 break
-            except Exception as exc:
+            except Exception as e:
+                errors_count += 1
+                save_error_diagnostic(driver, "page_load")
                 backoff = 2 ** attempt
-                logging.warning(f"Error accessing entry point: {exc}. Retrying in {backoff}s...")
+                logging.warning(f"Error accessing entry point: {e}. Retrying in {backoff}s...")
                 time.sleep(backoff)
                 if attempt == max_retries - 1:
                     raise
@@ -52,30 +92,27 @@ def run_scraper(base_url: str, headless: bool = True):
         # Infinite loop handling load-more pagination (Level 5.0 mandatory)
         while True:
             try:
-                button = WebDriverWait(driver, 3).until(
+                btn = WebDriverWait(driver, 3).until(
                     EC.element_to_be_clickable((By.ID, "load-more"))
                 )
-                button.click()
-                time.sleep(0.5)  # Buffer for dynamic batch injection
+                btn.click()
+                time.sleep(0.5)
             except Exception:
-                logging.info("Pagination finished: button is unavailable or records exhausted.")
+                logging.info("Load more finished or button not present.")
                 break
 
-        # Pass rendered DOM into BeautifulSoup parser
         soup = BeautifulSoup(driver.page_source, "lxml")
 
     except Exception as exc:
-        logging.error(f"Critical execution error in Selenium runtime: {exc}")
-        # Level 5.0 extension: error snapshot and raw DOM dump
-        driver.save_screenshot("error_screenshot.png")
-        with open("error_source.html", "w", encoding="utf-8") as f:
-            f.write(driver.page_source)
+        errors_count += 1
+        logging.error(f"Critical execution error: {exc}")
+        save_error_diagnostic(driver, "critical")
         driver.quit()
         raise exc
 
     records = []
 
-    # Parse primary catalog: Table structure
+    # 1. Parse table
     table_rows = soup.select("table#products-table tbody tr.product-row")
     for row in table_rows:
         link_elem = row.select_one(".details-link")
@@ -95,7 +132,7 @@ def run_scraper(base_url: str, headless: bool = True):
         }
         records.append(record)
 
-    # Parse primary catalog: Card structure
+    # 2. Parse cards
     cards = soup.select("#products-container article.product-card")
     for card in cards:
         link_elem = card.select_one(".details-link")
@@ -115,13 +152,14 @@ def run_scraper(base_url: str, headless: bool = True):
         }
         records.append(record)
 
-    # Scrape detail subpages (Level 4.0 mandatory: combine list and detail views)
+    # Scrape detail subpages (Level 4.0 mandatory)
     for rec in records:
         if not rec["details_url"]:
             continue
-        time.sleep(0.5)  # Enforced mandatory delay between requests
+        time.sleep(0.5)
         try:
             driver.get(rec["details_url"])
+            pages_visited_count += 1
             detail_soup = BeautifulSoup(driver.page_source, "lxml")
             
             ean = detail_soup.select_one("#spec-ean")
@@ -143,15 +181,14 @@ def run_scraper(base_url: str, headless: bool = True):
             rec["description"] = cleaners.clean_text(desc.get_text()) if desc else None
 
         except Exception as e:
-            logging.warning(f"Failed to fetch detail view for {rec['details_url']}: {e}")
+            errors_count += 1
+            logging.warning(f"Error fetching detail {rec['details_url']}: {e}")
+            save_error_diagnostic(driver, "detail_page")
 
     driver.quit()
 
-    # Data transformation, deduplication, and export
     df = pd.DataFrame(records)
     initial_count = len(df)
-
-    # Deduplication (Level 4.0 mandatory)
     df.drop_duplicates(subset=["id", "name"], inplace=True)
     dedup_count = len(df)
 
@@ -159,12 +196,40 @@ def run_scraper(base_url: str, headless: bool = True):
     df.to_csv("products_output.csv", index=False, encoding="utf-8")
     df.to_excel("products_output.xlsx", index=False)
 
-    total_time = round(time.time() - start_time, 2)
+    elapsed_time = round(time.time() - start_time, 2)
+    
+    # Complete execution summary (Level 4.0 extension)
     logging.info(
-        f"Execution completed: {initial_count} items scraped, {dedup_count} remaining after deduplication. "
-        f"Elapsed time: {total_time}s."
+        f"Summary (headless={headless}): "
+        f"pages_visited={pages_visited_count}, "
+        f"raw_records={initial_count}, "
+        f"unique_records={dedup_count}, "
+        f"errors_encountered={errors_count}, "
+        f"execution_time={elapsed_time}s"
     )
-    print(f"Task completed in {total_time}s. Records stored: {dedup_count}. Saved to CSV and XLSX.")
+
+    return elapsed_time, initial_count
 
 if __name__ == "__main__":
-    run_scraper("http://localhost:8000/mock.html", headless=True)
+    target_url = "http://localhost:8000/mock.html"
+
+    print("Measuring performance in both modes (Level 5.0 requirement)...")
+    
+    # 1. Run in Headless mode
+    print("Running in HEADLESS mode...")
+    time_headless, dom_records_headless = run_scraper(target_url, headless=True)
+    
+    # 2. Run in Headed mode
+    print("Running in HEADED mode...")
+    time_headed, dom_records_headed = run_scraper(target_url, headless=False)
+
+    # Performance comparison logged
+    summary_msg = (
+        f"\nComparison: Headless mode took {time_headless}s | "
+        f"Headed mode took {time_headed}s"
+    )
+    logging.info(summary_msg)
+    print(summary_msg)
+
+    # Compare HTML to rendered DOM (Requirement 5.0)
+    compare_raw_vs_dom(target_url, dom_records_headless)
