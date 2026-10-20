@@ -2,3 +2,4 @@ __pycache__
 scraping.log
 products_output.*
 *.png
+error*.html

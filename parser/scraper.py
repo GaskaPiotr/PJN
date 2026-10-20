@@ -54,6 +54,13 @@ def compare_raw_vs_dom(url: str, dom_record_count: int):
     except Exception as exc:
         logging.error(f"Failed to compare raw HTML vs DOM: {exc}")
 
+def get_spec_val(soup, *selectors):
+    for sel in selectors:
+        el = soup.select_one(sel)
+        if el and el.get_text(strip=True):
+            return cleaners.clean_text(el.get_text())
+    return None
+
 def run_scraper(base_url: str, headless: bool = True) -> tuple[float, int]:
     start_time = time.time()
     pages_visited_count = 0
@@ -69,39 +76,92 @@ def run_scraper(base_url: str, headless: bool = True) -> tuple[float, int]:
 
     driver = webdriver.Chrome(options=chrome_options)
     
+    catalog_pages = [
+        urljoin(base_url, "mock.html"),
+        urljoin(base_url, "catalog-page-2.html"),
+        urljoin(base_url, "catalog-page-3.html"),
+        urljoin(base_url, "catalog-page-4.html"),
+        urljoin(base_url, "catalog-page-5.html"),
+    ]
+
+    records = []
+
     try:
-        # Exponential backoff retry mechanism (Level 5.0 mandatory)
-        max_retries = 3
-        for attempt in range(max_retries):
-            try:
-                driver.get(base_url)
-                pages_visited_count += 1
-                WebDriverWait(driver, 10).until(
-                    EC.presence_of_element_located((By.TAG_NAME, "body"))
-                )
-                break
-            except Exception as e:
-                errors_count += 1
-                save_error_diagnostic(driver, "page_load")
-                backoff = 2 ** attempt
-                logging.warning(f"Error accessing entry point: {e}. Retrying in {backoff}s...")
-                time.sleep(backoff)
-                if attempt == max_retries - 1:
-                    raise
+        for page_url in catalog_pages:
+            # Exponential backoff retry mechanism (Level 5.0 mandatory)
+            max_retries = 3
+            for attempt in range(max_retries):
+                try:
+                    driver.get(page_url)
+                    pages_visited_count += 1
+                    WebDriverWait(driver, 10).until(
+                        EC.presence_of_element_located((By.TAG_NAME, "body"))
+                    )
+                    break
+                except Exception as e:
+                    errors_count += 1
+                    save_error_diagnostic(driver, "page_load")
+                    backoff = 2 ** attempt
+                    logging.warning(f"Error accessing entry point: {e}. Retrying in {backoff}s...")
+                    time.sleep(backoff)
+                    if attempt == max_retries - 1:
+                        raise
 
-        # Infinite loop handling load-more pagination (Level 5.0 mandatory)
-        while True:
-            try:
-                btn = WebDriverWait(driver, 3).until(
-                    EC.element_to_be_clickable((By.ID, "load-more"))
-                )
-                btn.click()
-                time.sleep(0.5)
-            except Exception:
-                logging.info("Load more finished or button not present.")
-                break
+            # Infinite loop handling load-more pagination (Level 5.0 mandatory)
+            while True:
+                try:
+                    btn = WebDriverWait(driver, 4).until(
+                        EC.element_to_be_clickable((By.ID, "load-more"))
+                    )
+                    btn.click()
+                    time.sleep(0.3)
+                except Exception:
+                    logging.info(f"Load more finished or button not present on {page_url}.")
+                    break
 
-        soup = BeautifulSoup(driver.page_source, "lxml")
+            soup = BeautifulSoup(driver.page_source, "lxml")
+
+            table_rows = soup.select("table#products-table tbody tr.product-row")
+            for row in table_rows:
+                link_elem = row.select_one(".details-link")
+                price_raw = row.select_one(".price").get_text() if row.select_one(".price") else None
+                record = {
+                    "id": row.get("data-id"),
+                    "warehouse": row.get("data-warehouse"),
+                    "name": cleaners.clean_text(row.select_one(".name").get_text()) if row.select_one(".name") else None,
+                    "price": cleaners.clean_price(price_raw),
+                    "currency": cleaners.extract_currency(price_raw),
+                    "category": cleaners.clean_text(row.select_one(".cat").get_text()) if row.select_one(".cat") else None,
+                    "brand": cleaners.clean_text(row.select_one(".brand").get_text()) if row.select_one(".brand") else None,
+                    "availability": cleaners.clean_text(row.select_one(".stock").get_text()) if row.select_one(".stock") else None,
+                    "rating": cleaners.clean_price(row.select_one(".rating").get_text()) if row.select_one(".rating") else None,
+                    "reviews_count": cleaners.clean_int(row.select_one(".reviews").get_text()) if row.select_one(".reviews") else None,
+                    "date_added": cleaners.clean_text(row.select_one(".date").get_text()) if row.select_one(".date") else None,
+                    "warranty_months": cleaners.clean_int(row.select_one(".warranty").get_text()) if row.select_one(".warranty") else None,
+                    "details_url": urljoin(page_url, link_elem.get("href")) if link_elem else None
+                }
+                records.append(record)
+
+            cards = soup.select("#products-container article.product-card")
+            for card in cards:
+                link_elem = card.select_one(".details-link")
+                price_raw = card.select_one(".price").get_text() if card.select_one(".price") else None
+                record = {
+                    "id": card.get("data-id"),
+                    "warehouse": card.get("data-warehouse"),
+                    "name": cleaners.clean_text(card.select_one(".name").get_text()) if card.select_one(".name") else None,
+                    "price": cleaners.clean_price(price_raw),
+                    "currency": cleaners.extract_currency(price_raw),
+                    "category": cleaners.clean_text(card.select_one(".cat").get_text()) if card.select_one(".cat") else None,
+                    "brand": cleaners.clean_text(card.select_one(".brand").get_text()) if card.select_one(".brand") else None,
+                    "availability": cleaners.clean_text(card.select_one(".stock").get_text()) if card.select_one(".stock") else None,
+                    "rating": cleaners.clean_price(card.select_one(".rating").get_text()) if card.select_one(".rating") else None,
+                    "reviews_count": cleaners.clean_int(card.select_one(".reviews").get_text()) if card.select_one(".reviews") else None,
+                    "date_added": cleaners.clean_text(card.select_one(".date").get_text()) if card.select_one(".date") else None,
+                    "warranty_months": cleaners.clean_int(card.select_one(".warranty").get_text()) if card.select_one(".warranty") else None,
+                    "details_url": urljoin(page_url, link_elem.get("href")) if link_elem else None
+                }
+                records.append(record)
 
     except Exception as exc:
         errors_count += 1
@@ -110,50 +170,8 @@ def run_scraper(base_url: str, headless: bool = True) -> tuple[float, int]:
         driver.quit()
         raise exc
 
-    records = []
-
-    # 1. Parse table
-    table_rows = soup.select("table#products-table tbody tr.product-row")
-    for row in table_rows:
-        link_elem = row.select_one(".details-link")
-        record = {
-            "id": row.get("data-id"),
-            "warehouse": row.get("data-warehouse"),
-            "name": cleaners.clean_text(row.select_one(".name").get_text()) if row.select_one(".name") else None,
-            "price": cleaners.clean_price(row.select_one(".price").get_text()) if row.select_one(".price") else None,
-            "category": cleaners.clean_text(row.select_one(".cat").get_text()) if row.select_one(".cat") else None,
-            "brand": cleaners.clean_text(row.select_one(".brand").get_text()) if row.select_one(".brand") else None,
-            "availability": cleaners.clean_text(row.select_one(".stock").get_text()) if row.select_one(".stock") else None,
-            "rating": cleaners.clean_price(row.select_one(".rating").get_text()) if row.select_one(".rating") else None,
-            "reviews_count": cleaners.clean_int(row.select_one(".reviews").get_text()) if row.select_one(".reviews") else None,
-            "date_added": cleaners.clean_text(row.select_one(".date").get_text()) if row.select_one(".date") else None,
-            "warranty_months": cleaners.clean_int(row.select_one(".warranty").get_text()) if row.select_one(".warranty") else None,
-            "details_url": urljoin(base_url, link_elem.get("href")) if link_elem else None
-        }
-        records.append(record)
-
-    # 2. Parse cards
-    cards = soup.select("#products-container article.product-card")
-    for card in cards:
-        link_elem = card.select_one(".details-link")
-        record = {
-            "id": card.get("data-id"),
-            "warehouse": card.get("data-warehouse"),
-            "name": cleaners.clean_text(card.select_one(".name").get_text()) if card.select_one(".name") else None,
-            "price": cleaners.clean_price(card.select_one(".price").get_text()) if card.select_one(".price") else None,
-            "category": cleaners.clean_text(card.select_one(".cat").get_text()) if card.select_one(".cat") else None,
-            "brand": cleaners.clean_text(card.select_one(".brand").get_text()) if card.select_one(".brand") else None,
-            "availability": cleaners.clean_text(card.select_one(".stock").get_text()) if card.select_one(".stock") else None,
-            "rating": cleaners.clean_price(card.select_one(".rating").get_text()) if card.select_one(".rating") else None,
-            "reviews_count": cleaners.clean_int(card.select_one(".reviews").get_text()) if card.select_one(".reviews") else None,
-            "date_added": cleaners.clean_text(card.select_one(".date").get_text()) if card.select_one(".date") else None,
-            "warranty_months": cleaners.clean_int(card.select_one(".warranty").get_text()) if card.select_one(".warranty") else None,
-            "details_url": urljoin(base_url, link_elem.get("href")) if link_elem else None
-        }
-        records.append(record)
-
     # Scrape detail subpages (Level 4.0 mandatory)
-    for rec in records:
+    for idx, rec in enumerate(records, 1):
         if not rec["details_url"]:
             continue
         time.sleep(0.5)
@@ -162,23 +180,17 @@ def run_scraper(base_url: str, headless: bool = True) -> tuple[float, int]:
             pages_visited_count += 1
             detail_soup = BeautifulSoup(driver.page_source, "lxml")
             
-            ean = detail_soup.select_one("#spec-ean")
-            weight = detail_soup.select_one("#spec-weight")
-            dims = detail_soup.select_one("#spec-dims")
-            color = detail_soup.select_one("#spec-color")
-            origin = detail_soup.select_one("#spec-origin")
-            mat = detail_soup.select_one("#spec-material")
-            condition = detail_soup.select_one("#spec-condition")
-            desc = detail_soup.select_one(".description-text")
-
-            rec["ean_code"] = cleaners.clean_text(ean.get_text()) if ean else None
-            rec["weight"] = cleaners.clean_text(weight.get_text()) if weight else None
-            rec["dimensions"] = cleaners.clean_text(dims.get_text()) if dims else None
-            rec["color"] = cleaners.clean_text(color.get_text()) if color else None
-            rec["country_of_origin"] = cleaners.clean_text(origin.get_text()) if origin else None
-            rec["material"] = cleaners.clean_text(mat.get_text()) if mat else None
-            rec["condition"] = cleaners.clean_text(condition.get_text()) if condition else None
-            rec["description"] = cleaners.clean_text(desc.get_text()) if desc else None
+            rec["ean_code"] = get_spec_val(detail_soup, "#spec-ean", ".spec-ean")
+            rec["weight"] = get_spec_val(detail_soup, "#spec-weight", ".spec-weight")
+            rec["dimensions"] = get_spec_val(detail_soup, "#spec-dims", ".spec-dims")
+            rec["color"] = get_spec_val(detail_soup, "#spec-color", ".spec-color")
+            rec["country_of_origin"] = get_spec_val(detail_soup, "#spec-origin", ".spec-origin")
+            rec["material"] = get_spec_val(detail_soup, "#spec-material", ".spec-material")
+            rec["condition"] = get_spec_val(detail_soup, "#spec-condition", ".spec-condition")
+            rec["model"] = get_spec_val(detail_soup, "#spec-model", ".spec-model")
+            rec["energy_class"] = get_spec_val(detail_soup, "#spec-energy", "#spec-energy-class", ".spec-energy")
+            rec["delivery"] = cleaners.clean_int(get_spec_val(detail_soup, "#spec-shipping-days", "#spec-delivery"))
+            rec["description"] = get_spec_val(detail_soup, ".description-text", "#spec-details p", "details p")
 
         except Exception as e:
             errors_count += 1
@@ -214,16 +226,9 @@ if __name__ == "__main__":
     target_url = "http://localhost:8000/mock.html"
 
     print("Measuring performance in both modes (Level 5.0 requirement)...")
-    
-    # 1. Run in Headless mode
-    print("Running in HEADLESS mode...")
     time_headless, dom_records_headless = run_scraper(target_url, headless=True)
-    
-    # 2. Run in Headed mode
-    print("Running in HEADED mode...")
     time_headed, dom_records_headed = run_scraper(target_url, headless=False)
 
-    # Performance comparison logged
     summary_msg = (
         f"\nComparison: Headless mode took {time_headless}s | "
         f"Headed mode took {time_headed}s"
