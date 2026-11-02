@@ -1,0 +1,37 @@
+LAB 2 — część F: więcej miar podobieństwa
+
+Zasady działania miar:
+• Levenshtein: minimalna liczba wstawień, usunięć i zamian pojedynczych znaków.
+• Damerau-Levenshtein: jak Levenshtein, ale zamiana sąsiednich znaków miejscami kosztuje 1.
+• Jaro-Winkler: podobieństwo znaków; premiuje wspólny początek napisów.
+• Jaccard: porównuje zbiory słów wspólnych i wszystkich słów z obu zdań.
+
+Wyniki (Levenshtein i Damerau to odległości: mniej = bardziej podobne; pozostałe: więcej = bardziej podobne):
+
+'Ala ma kota' / 'Ala posiada kota'
+  Levenshtein: 6
+  Damerau-Levenshtein: 6
+  Jaro-Winkler: 0.847
+  Jaccard: 0.500
+
+'kot' / 'kto'
+  Levenshtein: 2
+  Damerau-Levenshtein: 1
+  Jaro-Winkler: 0.556
+  Jaccard: 0.000
+
+'Kraków' / 'Krakow'
+  Levenshtein: 1
+  Damerau-Levenshtein: 1
+  Jaro-Winkler: 0.933
+  Jaccard: 0.000
+
+'programowanie' / 'programowanie'
+  Levenshtein: 0
+  Damerau-Levenshtein: 0
+  Jaro-Winkler: 1.000
+  Jaccard: 1.000
+
+Największa różnica między miarami:
+'Kraków' / 'Krakow'
+Różnica wynika z tego, że miary znakowe obserwują kolejność liter, a Jaccard patrzy tylko na wspólne słowa. Dodatkowo Damerau-Levenshtein szczególnie łagodnie traktuje przestawienie sąsiednich liter.

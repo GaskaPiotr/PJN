@@ -1,0 +1,20 @@
+LAB 2 — część E: polszczyzna wymaga innych narzędzi
+
+Analizowany fragment: pierwsze 1500 znaków pliku data\pan_tadeusz.txt
+
+Pięć polskich słów — wynik angielskiego SnowballStemmer:
+Pan → pan
+czyli → czyli
+ostatni → ostatni
+zajazd → zajazd
+na → na
+
+Wniosek: angielski stemmer nie zna polskiej fleksji, więc jego wyniki nie są wiarygodne dla polszczyzny.
+
+Języki obsługiwane przez SnowballStemmer:
+arabic, danish, dutch, english, finnish, french, german, hungarian, italian, norwegian, porter, portuguese, romanian, russian, spanish, swedish
+
+Czy lista zawiera język polski? Nie.
+SnowballStemmer nie obsługuje polskiego, dlatego w tej części użyty jest Stempel do rdzeni oraz spaCy z modelem pl_core_news_sm do tokenizacji i lematyzacji.
+
+Pełna tabela: czesc_e_polski_tabela.csv

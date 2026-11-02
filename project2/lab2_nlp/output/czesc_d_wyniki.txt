@@ -1,0 +1,20 @@
+LAB 2 — część D: porównanie stemmerów
+
+Pięć słów z tekstu o różnych wynikach:
+abate → Porter: abat, Lancaster: ab
+abatements → Porter: abat, Lancaster: ab
+ability → Porter: abil, Lancaster: abl
+absent → Porter: absent, Lancaster: abs
+absolute → Porter: absolut, Lancaster: absolv
+
+Wniosek: Lancaster jest zwykle bardziej agresywny, bo częściej zwraca krótszy rdzeń. Porter jest zwykle sensowniejszy do ogólnej analizy tekstu, ponieważ mniej obcina słowa.
+
+Przykład nadmiernego obcinania:
+general / generous → Porter: gener / gener; Lancaster: gen / gen.
+Dwa różne wyrazy dostają ten sam rdzeń, więc algorytm zaciera różnicę znaczenia.
+
+Przykład niedostatecznego obcinania:
+go / goes → Porter: go / goe; Lancaster: go / goe.
+To formy tego samego czasownika, ale różne rdzenie oznaczają, że algorytm ich nie połączył.
+
+Pełna tabela wszystkich różnych wyników: czesc_d_porownanie_stemmerow.csv

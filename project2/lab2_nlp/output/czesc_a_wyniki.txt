@@ -1,0 +1,36 @@
+LAB 2 — czesc A: n-gramy w tekscie polskim
+Plik zrodlowy: data\pan_tadeusz.txt
+Liczba zdan: 3891
+Liczba wyrazow: 68393
+Liczba roznych unigramow: 18852
+Liczba roznych bigramow: 58972
+Liczba roznych trigramow: 67580
+
+10 najczestszych bigramow:
+się w: 76
+i z: 72
+się z: 68
+się i: 61
+i w: 55
+się na: 47
+i na: 39
+co się: 38
+i tak: 36
+na to: 30
+
+10 najczestszych trigramow:
+się z nim: 8
+hejże na soplicę: 6
+idąc kłaniał się: 5
+za mych czasów: 5
+ostatniego z horeszków: 5
+z drugiej strony: 5
+raz po raz: 5
+a na to: 5
+pro publico bono: 5
+w domu sędziego: 4
+
+Odpowiedzi:
+1. W analizowanym tekscie dominuja bigramy: się w, i z, się z.
+2. Najczestsze trigramy (się z nim, hejże na soplicę, idąc kłaniał się) sa kandydatami na powtarzalne zwroty autora.
+3. Unigramy licza pojedyncze, czesto bardzo czeste slowa; bigramy sa bardziej rozproszone, ale pokazuja sasiedztwo slow i kontekst.

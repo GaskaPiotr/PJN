@@ -1,0 +1,15 @@
+LAB 2 — czesc B: stemming i lematyzacja
+
+Wybrane 5 zdan:
+1. THE TRAGEDY OF HAMLET, PRINCE OF DENMARK by William Shakespeare Dramatis Personae Claudius, King of Denmark.
+2. Hamlet, son to the former, and nephew to the present king.
+3. Francisco, a soldier Reynaldo, servant to Polonius.
+4. Getrude, Queen of Denmark, mother to Hamlet.
+5. Lords, ladies, Officers, Soldiers, Sailors, Messengers, Attendants.
+
+Co najmniej trzy rozne wyniki (token -> rdzen -> lemat):
+tragedy -> tragedi -> tragedy
+prince -> princ -> prince
+shakespeare -> shakespear -> shakespeare
+
+Pelna tabela token -> rdzen -> lemat: czesc_b_tabela.csv

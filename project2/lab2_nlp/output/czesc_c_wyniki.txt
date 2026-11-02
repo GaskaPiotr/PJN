@@ -1,0 +1,10 @@
+LAB 2 — czesc C: odleglosc edycyjna
+
+Zdanie 1: Ala ma kota
+Zdanie 2: Ala posiada kota
+Odleglosc Levenshteina (textdistance): 6
+
+Wyjasnienie (zadanie C.3):
+Wspolne pozostaja fragmenty „Ala ” oraz „a kota”. Srodkowy fragment „ma” mozna
+zamienic w „posiada” przez 6 operacji: zamiane „m” na „p” (1 operacja) i wstawienie
+liter „osiad” miedzy „p” i „a” (5 operacji). Razem: 1 + 5 = 6.
