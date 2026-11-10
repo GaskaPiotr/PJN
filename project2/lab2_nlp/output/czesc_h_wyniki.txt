@@ -1,0 +1,50 @@
+=== CZĘŚĆ H: PODZIAŁ SŁÓW DLA RÓŻNYCH ROZMIARÓW SŁOWNIKA ===
+
+Słowo: nieprzetłumaczalny
+  - 1000:  nie | prze | tłu | ma | cza | l | ny
+  - 5000:  nie | prze | tłuma | cza | lny
+  - 30000: nie | prze | tłuma | cza | lny
+
+Słowo: hiperparametryzacja
+  - 1000:  h | i | p | er | pa | ra | me | try | za | c | ja
+  - 5000:  h | i | per | para | me | try | za | cja
+  - 30000: hi | per | para | metry | za | cja
+
+Słowo: kotkowi
+  - 1000:  ko | t | ko | wi
+  - 5000:  kot | kowi
+  - 30000: kot | kowi
+
+Słowo: niepodległościowy
+  - 1000:  nie | pod | le | gło | ści | o | wy
+  - 5000:  nie | pod | le | gło | ści | o | wy
+  - 30000: nie | podle | gło | ści | o | wy
+
+=== ŚREDNIA LICZBA TOKENÓW NA ZDANIE ===
+Własny BPE (5k)      -> PL: 17.00 tokenów | EN: 27.80 tokenów
+GPT-2                -> PL: 28.00 tokenów | EN: 11.40 tokenów
+HerBERT              -> PL: 11.20 tokenów | EN: 19.40 tokenów
+Bielik               -> PL: 22.80 tokenów | EN: 11.60 tokenów
+
+=== ODPOWIEDZI NA PYTANIA TEORETYCZNE ===
+1. Który tokenizator jest najbardziej ekonomiczny dla tekstu polskiego, a który dla angielskiego?
+   - Dla tekstu polskiego najbardziej ekonomiczny jest Bielik lub HerBERT (oraz własny BPE dla słów
+     z domeny). Bielik i HerBERT były trenowane na bogatych korpusach języka polskiego.
+   - Dla tekstu angielskiego najefektywniejszy jest GPT-2, którego słownik zoptymalizowano pod angielski.
+
+2. Jak zmienia się liczba tokenów wraz ze wzrostem rozmiaru słownika Twojego tokenizatora?
+   - Wraz ze wzrostem słownika (1k -> 5k -> 30k) słowa dzielone są na coraz dłuższe fragmenty,
+     a całe wyrazy częściej stają się pojedynczymi tokenami. Zależność NIE JEST liniowa – następuje
+     szybkie nasycenie (prawo malejących przychodów); rozbudowa słownika o kolejne tysiące obejmuje
+     bardzo rzadkie zbitki liter i formy fleksyjne.
+
+3. Dlaczego tokenizator wytrenowany na jednej książce wypada dobrze na niej, a gorzej na innym tekście?
+   - Tokenizator nauczył się słownictwa, archaizmów i morfemów typowych dla jednego autora/epoki.
+     Nowoczesne słowa techniczne czy publicystyczne nie występowały w korpusie treningowym,
+     więc zostaną pofragmentowane na pojedyncze litery lub bardzo drobne podsłowa.
+
+4. Jaki jest związek między tym ćwiczeniem a pojęciem 'podatku językowego' (fertility/token tax)?
+   - Modele trenowane głównie na języku angielskim (np. rodzina GPT) dzielą jedno polskie słowo
+     na 2–4 tokeny, podczas gdy słowo angielskie to najczęściej 1 token. Sprawia to, że przetwarzanie
+     języka polskiego w modelach komercyjnych jest 2-3x droższe, wolniejsze i szybciej wyczerpuje
+     okno kontekstowe modelu. Wybór dedykowanego tokenizatora (np. Bielik) eliminuje ten podatek.

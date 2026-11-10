@@ -1,0 +1,21 @@
+=== CZĘŚĆ I: PORÓWNANIE METOD PRZETWARZANIA TEKSTU ===
+
+1. Same wyrazy                 | Jednostek: 600   | Unikalnych: 432
+2. Wyrazy po lematyzacji       | Jednostek: 600   | Unikalnych: 383
+3. Wyrazy bez stop words       | Jednostek: 403   | Unikalnych: 369
+4. Tokeny podsłowowe (BPE)     | Jednostek: 1116  | Unikalnych: 608
+
+=== WNIOSKI: KTÓRA METODA NAJMOCNIEJ ZMNIEJSZA SŁOWNIK I JAKIM KOSZTEM ===
+1. Lematyzacja vs Same wyrazy:
+   Lematyzacja redukuje rozmiar unikalnego słownika poprzez sprowadzenie różnych form fleksyjnych
+   do formy podstawowej. Koszt: utrata informacji gramatycznej (czas, przypadek, liczba, osoba).
+
+2. Usunięcie stop words:
+   Drastycznie skraca całkowity tekst (długość sekwencji) oraz zmniejsza słownik o najczęstsze
+   spójniki i zaimki. Koszt: całkowita utrata spójności składniowej i stylu, tekst nie nadaje się
+   do generowania zdań przez LLM, choć jest świetny pod klasyczne wyszukiwanie IR.
+
+3. Tokenizacja podsłowowa (BPE):
+   BPE daje stały, z góry zdefiniowany rozmiar aktywnego słownika podsłów bez problemu słów nieznanych
+   (out-of-vocabulary / OOV). Kosztem jest wydłużenie sekwencji (liczby jednostek) w przypadku rzadkich
+   słów oraz brak bezpośredniej interpretowalności lingwistycznej takich tokenów.

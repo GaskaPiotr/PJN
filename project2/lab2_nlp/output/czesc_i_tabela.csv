@@ -1,0 +1,5 @@
+Metoda,Liczba jednostek (długość),Rozmiar słownika (unikalne)
+1. Same wyrazy,600,432
+2. Wyrazy po lematyzacji,600,383
+3. Wyrazy bez stop words,403,369
+4. Tokeny podsłowowe (BPE),1116,608

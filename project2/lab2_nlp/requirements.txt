@@ -3,3 +3,7 @@ matplotlib
 textdistance
 spacy
 pystempel
+stop-words
+transformers
+tokenizers
+sentencepiece

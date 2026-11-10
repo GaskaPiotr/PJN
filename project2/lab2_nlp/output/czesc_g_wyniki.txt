@@ -1,0 +1,49 @@
+=== CZĘŚĆ G: WYNIKI ANALIZY ===
+
+Liczba słów przed usunięciem stop words: 68239
+Liczba słów po usunięciu stop words: 43641
+
+--- TOP 10 BIGRAMÓW (BEZ STOP WORDS) ---
+rzekł sędzia: 14
+jaśnie wielmożny: 9
+jenerał dąbrowski: 8
+ksiądz robak: 8
+rzekł hrabia: 8
+drugiej strony: 6
+hejże soplicę: 6
+kusego sokoła: 5
+idąc kłaniał: 5
+kapitan ryków: 5
+
+--- TOP 10 TRIGRAMÓW (BEZ STOP WORDS) ---
+pro publico bono: 5
+wieku urzędu zaszczyt: 4
+urzędu zaszczyt należy: 4
+zaszczyt należy idąc: 4
+należy idąc kłaniał: 4
+ostatniego horeszków chociaż: 4
+horeszków chociaż kądzieli: 4
+goście weszli porządku: 3
+weszli porządku stanęli: 3
+porządku stanęli kołem: 3
+
+--- TOP 10 NAZW WŁASNYCH (REGEX) ---
+Sędzia: 90
+Hrabia: 87
+Wojski: 60
+Tadeusz: 51
+Tadeusza: 51
+Gerwazy: 45
+Robak: 39
+Sędziego: 38
+Litwie: 36
+Klucznik: 36
+
+--- WNIOSKI (STYL VS TREŚĆ) ---
+1. Bez stop words bigramy i trigramy ujawniają rzeczywiste motywy i treść utworu
+   (np. powiązania postaci, relacje przestrzenne, kluczowe rekwizyty), zamiast struktur
+   składniowych i spójników ('i w', 'że się', 'do niego').
+2. Wariant ze stop words lepiej charakteryzuje styl autora (rytmiczność, budowę zdań,
+   stylizację retoryczną), natomiast wariant oczyszczony ukazuje semantykę tekstu.
+3. Zastosowane wyrażenie regularne skutecznie eliminuje słowa rozpoczynające zdania,
+   co minimalizuje fałszywe wykrycia wyrazów pisanych wielką literą z powodów interpunkcyjnych.
