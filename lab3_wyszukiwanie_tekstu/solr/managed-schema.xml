@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema name="field-notes" version="1.7">
+  <fieldType name="string" class="solr.StrField"/>
+  <fieldType name="int" class="solr.IntPointField"/>
+  <fieldType name="long" class="solr.LongPointField"/>
+  <fieldType name="english_text" class="solr.TextField" positionIncrementGap="100">
+    <analyzer>
+      <tokenizer name="standard"/>
+      <filter name="lowercase"/>
+      <filter name="stop" words="stopwords.txt" ignoreCase="false"/>
+      <filter name="snowballPorter" language="English"/>
+    </analyzer>
+  </fieldType>
+  <field name="id" type="string" indexed="true" stored="true" docValues="true" multiValued="false" required="true"/>
+  <field name="title" type="english_text" indexed="true" stored="true" docValues="false" multiValued="false" required="true"/>
+  <field name="body" type="english_text" indexed="true" stored="true" docValues="false" multiValued="false" storeOffsetsWithPositions="true" required="true"/>
+  <field name="category" type="string" indexed="true" stored="true" docValues="true" multiValued="false" required="true"/>
+  <field name="region" type="string" indexed="true" stored="true" docValues="true" multiValued="false" required="true"/>
+  <field name="year" type="int" indexed="true" stored="true" docValues="true" multiValued="false" required="true"/>
+  <field name="_version_" type="long" indexed="false" stored="false" docValues="true" multiValued="false"/>
+  <uniqueKey>id</uniqueKey>
+</schema>

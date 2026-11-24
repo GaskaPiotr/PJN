@@ -1,0 +1,315 @@
+{
+  "correct": {
+    "count": 52801,
+    "result": {
+      "responseHeader": {
+        "zkConnected": true,
+        "status": 0,
+        "QTime": 10
+      },
+      "response": {
+        "numFound": 52801,
+        "start": 0,
+        "maxScore": 5.3226027,
+        "numFoundExact": true,
+        "docs": [
+          {
+            "id": "000109",
+            "title": "Solar panel inspection at Juniper Hill",
+            "category": "woodland",
+            "region": "south",
+            "year": 2018,
+            "score": 5.3226027
+          },
+          {
+            "id": "000124",
+            "title": "Solar panel inspection at Reed Valley",
+            "category": "coast",
+            "region": "central",
+            "year": 2003,
+            "score": 5.3226027
+          },
+          {
+            "id": "000133",
+            "title": "Solar panel inspection at Maple Basin",
+            "category": "woodland",
+            "region": "central",
+            "year": 2007,
+            "score": 5.3226027
+          },
+          {
+            "id": "000134",
+            "title": "Solar panel inspection at Granite Point",
+            "category": "coast",
+            "region": "west",
+            "year": 2011,
+            "score": 5.3226027
+          },
+          {
+            "id": "000183",
+            "title": "Solar panel inspection at Hazel Brook",
+            "category": "grassland",
+            "region": "north",
+            "year": 2013,
+            "score": 5.3226027
+          },
+          {
+            "id": "000285",
+            "title": "Solar panel inspection at Hazel Brook",
+            "category": "woodland",
+            "region": "west",
+            "year": 2013,
+            "score": 5.3226027
+          },
+          {
+            "id": "000316",
+            "title": "Solar panel inspection at Granite Point",
+            "category": "grassland",
+            "region": "west",
+            "year": 2005,
+            "score": 5.3226027
+          },
+          {
+            "id": "000351",
+            "title": "Solar panel inspection at Larch Gap",
+            "category": "coast",
+            "region": "south",
+            "year": 2008,
+            "score": 5.3226027
+          },
+          {
+            "id": "000545",
+            "title": "Solar panel inspection at Willow Bank",
+            "category": "grassland",
+            "region": "east",
+            "year": 2013,
+            "score": 5.3226027
+          },
+          {
+            "id": "000640",
+            "title": "Solar panel inspection at Reed Valley",
+            "category": "grassland",
+            "region": "central",
+            "year": 2013,
+            "score": 5.3226027
+          }
+        ]
+      }
+    },
+    "query": "http://127.0.0.1:18983/solr/lab3_500000/select?q=solar&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=10&wt=json",
+    "server_ms": [
+      13,
+      12,
+      10,
+      10,
+      11,
+      10
+    ],
+    "client_ms": [
+      16.84860000386834,
+      15.593699994497001,
+      13.009099988266826,
+      12.869200087152421,
+      14.05879994854331,
+      13.576500001363456
+    ],
+    "second_ms": 12,
+    "median_ms": 10,
+    "median_client_ms": 13.576500001363456
+  },
+  "typo": {
+    "count": 0,
+    "result": {
+      "responseHeader": {
+        "zkConnected": true,
+        "status": 0,
+        "QTime": 1
+      },
+      "response": {
+        "numFound": 0,
+        "start": 0,
+        "maxScore": 0.0,
+        "numFoundExact": true,
+        "docs": []
+      }
+    },
+    "query": "http://127.0.0.1:18983/solr/lab3_500000/select?q=soalr&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=10&wt=json",
+    "server_ms": [
+      1,
+      2,
+      2,
+      4,
+      2,
+      1
+    ],
+    "client_ms": [
+      3.30700003542006,
+      4.654900054447353,
+      4.634700017049909,
+      6.107199937105179,
+      4.648700007237494,
+      3.2892000162974
+    ],
+    "second_ms": 2,
+    "median_ms": 2,
+    "median_client_ms": 4.648700007237494
+  },
+  "fuzzy": {
+    "count": 52801,
+    "result": {
+      "responseHeader": {
+        "zkConnected": true,
+        "status": 0,
+        "QTime": 16
+      },
+      "response": {
+        "numFound": 52801,
+        "start": 0,
+        "maxScore": 4.258082,
+        "numFoundExact": true,
+        "docs": [
+          {
+            "id": "000109",
+            "title": "Solar panel inspection at Juniper Hill",
+            "category": "woodland",
+            "region": "south",
+            "year": 2018,
+            "score": 4.258082
+          },
+          {
+            "id": "000124",
+            "title": "Solar panel inspection at Reed Valley",
+            "category": "coast",
+            "region": "central",
+            "year": 2003,
+            "score": 4.258082
+          },
+          {
+            "id": "000133",
+            "title": "Solar panel inspection at Maple Basin",
+            "category": "woodland",
+            "region": "central",
+            "year": 2007,
+            "score": 4.258082
+          },
+          {
+            "id": "000134",
+            "title": "Solar panel inspection at Granite Point",
+            "category": "coast",
+            "region": "west",
+            "year": 2011,
+            "score": 4.258082
+          },
+          {
+            "id": "000183",
+            "title": "Solar panel inspection at Hazel Brook",
+            "category": "grassland",
+            "region": "north",
+            "year": 2013,
+            "score": 4.258082
+          },
+          {
+            "id": "000285",
+            "title": "Solar panel inspection at Hazel Brook",
+            "category": "woodland",
+            "region": "west",
+            "year": 2013,
+            "score": 4.258082
+          },
+          {
+            "id": "000316",
+            "title": "Solar panel inspection at Granite Point",
+            "category": "grassland",
+            "region": "west",
+            "year": 2005,
+            "score": 4.258082
+          },
+          {
+            "id": "000351",
+            "title": "Solar panel inspection at Larch Gap",
+            "category": "coast",
+            "region": "south",
+            "year": 2008,
+            "score": 4.258082
+          },
+          {
+            "id": "000545",
+            "title": "Solar panel inspection at Willow Bank",
+            "category": "grassland",
+            "region": "east",
+            "year": 2013,
+            "score": 4.258082
+          },
+          {
+            "id": "000640",
+            "title": "Solar panel inspection at Reed Valley",
+            "category": "grassland",
+            "region": "central",
+            "year": 2013,
+            "score": 4.258082
+          }
+        ]
+      }
+    },
+    "query": "http://127.0.0.1:18983/solr/lab3_500000/select?q=soalr~1&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=10&wt=json",
+    "server_ms": [
+      72,
+      15,
+      22,
+      21,
+      19,
+      16
+    ],
+    "client_ms": [
+      75.1671000616625,
+      19.03429999947548,
+      25.6794000742957,
+      24.92640004493296,
+      22.5810999982059,
+      20.785799948498607
+    ],
+    "second_ms": 15,
+    "median_ms": 19,
+    "median_client_ms": 22.5810999982059
+  },
+  "sql_correct": {
+    "count": 52801,
+    "rows": [
+      {
+        "count": 52801
+      }
+    ],
+    "query": "SELECT count(*) FROM field_notes_500000 WHERE year BETWEEN 2000 AND 2024 AND (lower(title) LIKE '%solar%' OR lower(body) LIKE '%solar%')",
+    "result_client_ms": 926.7151999520138,
+    "server_ms": [
+      1171.011,
+      936.993,
+      919.381,
+      933.096,
+      946.416,
+      924.774
+    ],
+    "second_ms": 936.993,
+    "median_ms": 933.096
+  },
+  "sql_typo": {
+    "count": 0,
+    "rows": [
+      {
+        "count": 0
+      }
+    ],
+    "query": "SELECT count(*) FROM field_notes_500000 WHERE year BETWEEN 2000 AND 2024 AND (lower(title) LIKE '%soalr%' OR lower(body) LIKE '%soalr%')",
+    "result_client_ms": 949.3079000385478,
+    "server_ms": [
+      1003.761,
+      976.689,
+      936.867,
+      981.061,
+      956.65,
+      973.577
+    ],
+    "second_ms": 976.689,
+    "median_ms": 973.577
+  }
+}

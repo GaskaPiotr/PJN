@@ -1,0 +1,139 @@
+{
+  "before": {
+    "postgres": {
+      "total": 500000,
+      "hits": [],
+      "query": "SELECT id FROM field_notes_500000\nWHERE search_vector @@ to_tsquery('english', 'calibration') ORDER BY id",
+      "count_query": "SELECT count(*) AS records FROM field_notes_500000",
+      "client_ms": 29.206500039435923
+    },
+    "solr": {
+      "total": 500000,
+      "hits": [],
+      "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=calibration&defType=edismax&qf=title%5E3+body&fl=id&sort=id+asc&rows=10",
+      "lookup_url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=id%3A%28000013+OR+000037+OR+000081%29&fl=id%2Ctitle%2Cbody%2Ccategory%2Cregion%2Cyear&sort=id+asc&rows=3",
+      "qtime_ms": 3,
+      "client_ms": 25.49549995455891
+    },
+    "present_ids": [
+      13,
+      37,
+      81
+    ],
+    "fields_equal": true
+  },
+  "mutation": {
+    "sql": [
+      "UPDATE field_notes_500000 SET body = body || %s WHERE id = ANY(%s)",
+      "DELETE FROM field_notes_500000 WHERE id = %s"
+    ],
+    "update_parameters": [
+      " The calibration was repeated before the instrument was packed away.",
+      [
+        13,
+        37
+      ]
+    ],
+    "delete_parameters": [
+      81
+    ],
+    "solr": {
+      "url": "http://127.0.0.1:18983/solr/lab3_500000/update?",
+      "actions": [
+        {
+          "add_or_replace": [
+            13,
+            37
+          ],
+          "qtime_ms": 11,
+          "client_ms": 12.719799997285008
+        },
+        {
+          "delete": [
+            81
+          ],
+          "qtime_ms": 7,
+          "client_ms": 10.491000022739172
+        },
+        {
+          "commit": true,
+          "qtime_ms": 339,
+          "client_ms": 341.7104999534786
+        }
+      ]
+    }
+  },
+  "after": {
+    "postgres": {
+      "total": 499999,
+      "hits": [
+        13,
+        37
+      ],
+      "query": "SELECT id FROM field_notes_500000\nWHERE search_vector @@ to_tsquery('english', 'calibration') ORDER BY id",
+      "count_query": "SELECT count(*) AS records FROM field_notes_500000",
+      "client_ms": 0.964400009252131
+    },
+    "solr": {
+      "total": 499999,
+      "hits": [
+        13,
+        37
+      ],
+      "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=calibration&defType=edismax&qf=title%5E3+body&fl=id&sort=id+asc&rows=10",
+      "lookup_url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=id%3A%28000013+OR+000037+OR+000081%29&fl=id%2Ctitle%2Cbody%2Ccategory%2Cregion%2Cyear&sort=id+asc&rows=3",
+      "qtime_ms": 1,
+      "client_ms": 3.6637000739574432
+    },
+    "present_ids": [
+      13,
+      37
+    ],
+    "fields_equal": true
+  },
+  "restore": {
+    "sql": "INSERT INTO field_notes_500000 (id,title,body,category,region,year) VALUES (%(id)s,%(title)s,%(body)s,%(category)s,%(region)s,%(year)s)\nON CONFLICT (id) DO UPDATE SET title=excluded.title, body=excluded.body, category=excluded.category,\n                               region=excluded.region, year=excluded.year",
+    "solr": {
+      "url": "http://127.0.0.1:18983/solr/lab3_500000/update?",
+      "actions": [
+        {
+          "add_or_replace": [
+            13,
+            37,
+            81
+          ],
+          "qtime_ms": 7,
+          "client_ms": 8.979100035503507
+        },
+        {
+          "commit": true,
+          "qtime_ms": 294,
+          "client_ms": 296.6613000025973
+        }
+      ]
+    },
+    "snapshot": {
+      "postgres": {
+        "total": 500000,
+        "hits": [],
+        "query": "SELECT id FROM field_notes_500000\nWHERE search_vector @@ to_tsquery('english', 'calibration') ORDER BY id",
+        "count_query": "SELECT count(*) AS records FROM field_notes_500000",
+        "client_ms": 0.8819999638944864
+      },
+      "solr": {
+        "total": 500000,
+        "hits": [],
+        "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=calibration&defType=edismax&qf=title%5E3+body&fl=id&sort=id+asc&rows=10",
+        "lookup_url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=id%3A%28000013+OR+000037+OR+000081%29&fl=id%2Ctitle%2Cbody%2Ccategory%2Cregion%2Cyear&sort=id+asc&rows=3",
+        "qtime_ms": 1,
+        "client_ms": 2.8574999887496233
+      },
+      "present_ids": [
+        13,
+        37,
+        81
+      ],
+      "fields_equal": true
+    }
+  }
+}

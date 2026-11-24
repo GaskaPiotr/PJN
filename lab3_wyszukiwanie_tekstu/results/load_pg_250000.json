@@ -1,0 +1,12 @@
+{
+  "records": 250000,
+  "copy_ms": 97515.55289991666,
+  "gin_ms": 11997.516400064342,
+  "analyze_ms": 702.3140999954194,
+  "heap_bytes": 411729920,
+  "gin_bytes": 30334976,
+  "total_bytes": 461594624,
+  "copy": "COPY field_notes_250000 (id,title,body,category,region,year) FROM STDIN WITH (FORMAT CSV, HEADER TRUE)",
+  "index": "CREATE INDEX field_notes_250000_gin ON field_notes_250000 USING GIN (search_vector);",
+  "analyze": "ANALYZE field_notes_250000"
+}

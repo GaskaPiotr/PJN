@@ -1,0 +1,26 @@
+{
+  "browser": "ChatGPT in-app browser",
+  "standalone_verification": [
+    {
+      "label": "Q1 restore",
+      "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=restore&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=10&wt=json&hl=true&hl.fl=body&hl.method=unified&hl.snippets=1",
+      "numFound": 62565,
+      "QTime_ms": 77,
+      "highlighting_visible": true
+    },
+    {
+      "label": "Q2 \"solar panel\"",
+      "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%22solar+panel%22&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=10&wt=json&hl=true&hl.fl=body&hl.method=unified&hl.snippets=1",
+      "numFound": 27169,
+      "QTime_ms": 33,
+      "highlighting_visible": true
+    },
+    {
+      "label": "Q3 habitat AND (wetland OR marsh) AND NOT invasive",
+      "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=habitat+AND+%28wetland+OR+marsh%29+AND+NOT+invasive&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=10&wt=json&hl=true&hl.fl=body&hl.method=unified&hl.snippets=1",
+      "numFound": 44514,
+      "QTime_ms": 41,
+      "highlighting_visible": true
+    }
+  ]
+}

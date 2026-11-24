@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+  <luceneMatchVersion>10.4.0</luceneMatchVersion>
+  <schemaFactory class="ManagedIndexSchemaFactory">
+    <bool name="mutable">false</bool>
+    <str name="managedSchemaResourceName">managed-schema.xml</str>
+  </schemaFactory>
+  <directoryFactory name="DirectoryFactory" class="solr.NRTCachingDirectoryFactory"/>
+  <indexConfig/>
+  <updateHandler class="solr.DirectUpdateHandler2">
+    <updateLog>
+      <str name="dir">${solr.ulog.dir:}</str>
+    </updateLog>
+  </updateHandler>
+  <query>
+    <filterCache class="solr.CaffeineCache" size="256" initialSize="32" autowarmCount="0"/>
+  </query>
+  <requestDispatcher handleSelect="false"/>
+  <requestHandler name="/select" class="solr.SearchHandler">
+    <lst name="defaults">
+      <str name="df">body</str>
+      <str name="wt">json</str>
+    </lst>
+  </requestHandler>
+  <requestHandler name="/update" class="solr.UpdateRequestHandler"/>
+</config>

@@ -1,0 +1,761 @@
+{
+  "records": 250000,
+  "batch_size": 2000,
+  "upload_ms": 64225.21110007074,
+  "commit_ms": 1918.4724000515416,
+  "commit_client_ms": 1918.4117999393493,
+  "commit_qtime_ms": 1916,
+  "url": "http://127.0.0.1:18983/solr/lab3_250000/update?wt=json",
+  "batches": [
+    {
+      "batch": 1,
+      "docs": 2000,
+      "server_ms": 633,
+      "client_ms": 635.726600070484
+    },
+    {
+      "batch": 2,
+      "docs": 2000,
+      "server_ms": 461,
+      "client_ms": 463.6817000573501
+    },
+    {
+      "batch": 3,
+      "docs": 2000,
+      "server_ms": 429,
+      "client_ms": 432.1406000526622
+    },
+    {
+      "batch": 4,
+      "docs": 2000,
+      "server_ms": 378,
+      "client_ms": 380.81240002065897
+    },
+    {
+      "batch": 5,
+      "docs": 2000,
+      "server_ms": 386,
+      "client_ms": 388.95130006130785
+    },
+    {
+      "batch": 6,
+      "docs": 2000,
+      "server_ms": 420,
+      "client_ms": 422.7124999742955
+    },
+    {
+      "batch": 7,
+      "docs": 2000,
+      "server_ms": 365,
+      "client_ms": 368.4445999097079
+    },
+    {
+      "batch": 8,
+      "docs": 2000,
+      "server_ms": 363,
+      "client_ms": 366.2646999582648
+    },
+    {
+      "batch": 9,
+      "docs": 2000,
+      "server_ms": 348,
+      "client_ms": 350.8307000156492
+    },
+    {
+      "batch": 10,
+      "docs": 2000,
+      "server_ms": 349,
+      "client_ms": 351.8936999607831
+    },
+    {
+      "batch": 11,
+      "docs": 2000,
+      "server_ms": 352,
+      "client_ms": 355.02130002714694
+    },
+    {
+      "batch": 12,
+      "docs": 2000,
+      "server_ms": 356,
+      "client_ms": 359.08870003186166
+    },
+    {
+      "batch": 13,
+      "docs": 2000,
+      "server_ms": 358,
+      "client_ms": 360.7789999805391
+    },
+    {
+      "batch": 14,
+      "docs": 2000,
+      "server_ms": 359,
+      "client_ms": 361.4885000279173
+    },
+    {
+      "batch": 15,
+      "docs": 2000,
+      "server_ms": 382,
+      "client_ms": 385.1831000065431
+    },
+    {
+      "batch": 16,
+      "docs": 2000,
+      "server_ms": 366,
+      "client_ms": 368.5694000450894
+    },
+    {
+      "batch": 17,
+      "docs": 2000,
+      "server_ms": 372,
+      "client_ms": 374.58419997710735
+    },
+    {
+      "batch": 18,
+      "docs": 2000,
+      "server_ms": 363,
+      "client_ms": 366.1221000365913
+    },
+    {
+      "batch": 19,
+      "docs": 2000,
+      "server_ms": 413,
+      "client_ms": 416.53930000029504
+    },
+    {
+      "batch": 20,
+      "docs": 2000,
+      "server_ms": 391,
+      "client_ms": 393.58869998250157
+    },
+    {
+      "batch": 21,
+      "docs": 2000,
+      "server_ms": 406,
+      "client_ms": 408.3089999621734
+    },
+    {
+      "batch": 22,
+      "docs": 2000,
+      "server_ms": 372,
+      "client_ms": 375.2638000296429
+    },
+    {
+      "batch": 23,
+      "docs": 2000,
+      "server_ms": 376,
+      "client_ms": 378.439599997364
+    },
+    {
+      "batch": 24,
+      "docs": 2000,
+      "server_ms": 374,
+      "client_ms": 376.5840999549255
+    },
+    {
+      "batch": 25,
+      "docs": 2000,
+      "server_ms": 365,
+      "client_ms": 367.5810999702662
+    },
+    {
+      "batch": 26,
+      "docs": 2000,
+      "server_ms": 463,
+      "client_ms": 466.0094999708235
+    },
+    {
+      "batch": 27,
+      "docs": 2000,
+      "server_ms": 361,
+      "client_ms": 363.23810007888824
+    },
+    {
+      "batch": 28,
+      "docs": 2000,
+      "server_ms": 342,
+      "client_ms": 344.75200006272644
+    },
+    {
+      "batch": 29,
+      "docs": 2000,
+      "server_ms": 383,
+      "client_ms": 385.74059994425625
+    },
+    {
+      "batch": 30,
+      "docs": 2000,
+      "server_ms": 386,
+      "client_ms": 388.8419000431895
+    },
+    {
+      "batch": 31,
+      "docs": 2000,
+      "server_ms": 340,
+      "client_ms": 342.99999999348074
+    },
+    {
+      "batch": 32,
+      "docs": 2000,
+      "server_ms": 372,
+      "client_ms": 374.2795999860391
+    },
+    {
+      "batch": 33,
+      "docs": 2000,
+      "server_ms": 381,
+      "client_ms": 384.1201000614092
+    },
+    {
+      "batch": 34,
+      "docs": 2000,
+      "server_ms": 352,
+      "client_ms": 354.63860002346337
+    },
+    {
+      "batch": 35,
+      "docs": 2000,
+      "server_ms": 342,
+      "client_ms": 345.07489996030927
+    },
+    {
+      "batch": 36,
+      "docs": 2000,
+      "server_ms": 342,
+      "client_ms": 344.3228000542149
+    },
+    {
+      "batch": 37,
+      "docs": 2000,
+      "server_ms": 368,
+      "client_ms": 370.57250004727393
+    },
+    {
+      "batch": 38,
+      "docs": 2000,
+      "server_ms": 358,
+      "client_ms": 360.9355000080541
+    },
+    {
+      "batch": 39,
+      "docs": 2000,
+      "server_ms": 367,
+      "client_ms": 369.8698999360204
+    },
+    {
+      "batch": 40,
+      "docs": 2000,
+      "server_ms": 365,
+      "client_ms": 367.90840001776814
+    },
+    {
+      "batch": 41,
+      "docs": 2000,
+      "server_ms": 345,
+      "client_ms": 347.48120000585914
+    },
+    {
+      "batch": 42,
+      "docs": 2000,
+      "server_ms": 377,
+      "client_ms": 379.93139994796365
+    },
+    {
+      "batch": 43,
+      "docs": 2000,
+      "server_ms": 436,
+      "client_ms": 439.36229997780174
+    },
+    {
+      "batch": 44,
+      "docs": 2000,
+      "server_ms": 548,
+      "client_ms": 551.0103000560775
+    },
+    {
+      "batch": 45,
+      "docs": 2000,
+      "server_ms": 431,
+      "client_ms": 434.41600003279746
+    },
+    {
+      "batch": 46,
+      "docs": 2000,
+      "server_ms": 400,
+      "client_ms": 402.8138000285253
+    },
+    {
+      "batch": 47,
+      "docs": 2000,
+      "server_ms": 447,
+      "client_ms": 449.88390000071377
+    },
+    {
+      "batch": 48,
+      "docs": 2000,
+      "server_ms": 445,
+      "client_ms": 447.93689996004105
+    },
+    {
+      "batch": 49,
+      "docs": 2000,
+      "server_ms": 510,
+      "client_ms": 513.1034000078216
+    },
+    {
+      "batch": 50,
+      "docs": 2000,
+      "server_ms": 435,
+      "client_ms": 437.37649999093264
+    },
+    {
+      "batch": 51,
+      "docs": 2000,
+      "server_ms": 403,
+      "client_ms": 405.53559991531074
+    },
+    {
+      "batch": 52,
+      "docs": 2000,
+      "server_ms": 368,
+      "client_ms": 370.87220000103116
+    },
+    {
+      "batch": 53,
+      "docs": 2000,
+      "server_ms": 385,
+      "client_ms": 388.1468999898061
+    },
+    {
+      "batch": 54,
+      "docs": 2000,
+      "server_ms": 413,
+      "client_ms": 415.6588999321684
+    },
+    {
+      "batch": 55,
+      "docs": 2000,
+      "server_ms": 402,
+      "client_ms": 404.3145999312401
+    },
+    {
+      "batch": 56,
+      "docs": 2000,
+      "server_ms": 371,
+      "client_ms": 373.67919995449483
+    },
+    {
+      "batch": 57,
+      "docs": 2000,
+      "server_ms": 377,
+      "client_ms": 379.77400003001094
+    },
+    {
+      "batch": 58,
+      "docs": 2000,
+      "server_ms": 369,
+      "client_ms": 371.4013999560848
+    },
+    {
+      "batch": 59,
+      "docs": 2000,
+      "server_ms": 361,
+      "client_ms": 363.8354000868276
+    },
+    {
+      "batch": 60,
+      "docs": 2000,
+      "server_ms": 390,
+      "client_ms": 393.02600000519305
+    },
+    {
+      "batch": 61,
+      "docs": 2000,
+      "server_ms": 361,
+      "client_ms": 363.5158999823034
+    },
+    {
+      "batch": 62,
+      "docs": 2000,
+      "server_ms": 401,
+      "client_ms": 403.831799980253
+    },
+    {
+      "batch": 63,
+      "docs": 2000,
+      "server_ms": 374,
+      "client_ms": 376.6217000083998
+    },
+    {
+      "batch": 64,
+      "docs": 2000,
+      "server_ms": 346,
+      "client_ms": 348.87839993461967
+    },
+    {
+      "batch": 65,
+      "docs": 2000,
+      "server_ms": 416,
+      "client_ms": 418.6715000541881
+    },
+    {
+      "batch": 66,
+      "docs": 2000,
+      "server_ms": 422,
+      "client_ms": 424.89310004748404
+    },
+    {
+      "batch": 67,
+      "docs": 2000,
+      "server_ms": 364,
+      "client_ms": 366.5388999506831
+    },
+    {
+      "batch": 68,
+      "docs": 2000,
+      "server_ms": 372,
+      "client_ms": 374.3421999970451
+    },
+    {
+      "batch": 69,
+      "docs": 2000,
+      "server_ms": 459,
+      "client_ms": 461.6931000491604
+    },
+    {
+      "batch": 70,
+      "docs": 2000,
+      "server_ms": 540,
+      "client_ms": 542.705100029707
+    },
+    {
+      "batch": 71,
+      "docs": 2000,
+      "server_ms": 461,
+      "client_ms": 464.1296999761835
+    },
+    {
+      "batch": 72,
+      "docs": 2000,
+      "server_ms": 414,
+      "client_ms": 416.3623999338597
+    },
+    {
+      "batch": 73,
+      "docs": 2000,
+      "server_ms": 459,
+      "client_ms": 462.10820006672293
+    },
+    {
+      "batch": 74,
+      "docs": 2000,
+      "server_ms": 636,
+      "client_ms": 639.0367998974398
+    },
+    {
+      "batch": 75,
+      "docs": 2000,
+      "server_ms": 450,
+      "client_ms": 453.104899963364
+    },
+    {
+      "batch": 76,
+      "docs": 2000,
+      "server_ms": 453,
+      "client_ms": 455.3285000147298
+    },
+    {
+      "batch": 77,
+      "docs": 2000,
+      "server_ms": 485,
+      "client_ms": 487.74689994752407
+    },
+    {
+      "batch": 78,
+      "docs": 2000,
+      "server_ms": 573,
+      "client_ms": 576.3465999625623
+    },
+    {
+      "batch": 79,
+      "docs": 2000,
+      "server_ms": 493,
+      "client_ms": 496.20409996714443
+    },
+    {
+      "batch": 80,
+      "docs": 2000,
+      "server_ms": 390,
+      "client_ms": 392.9417000617832
+    },
+    {
+      "batch": 81,
+      "docs": 2000,
+      "server_ms": 695,
+      "client_ms": 697.726699989289
+    },
+    {
+      "batch": 82,
+      "docs": 2000,
+      "server_ms": 410,
+      "client_ms": 412.72029990796
+    },
+    {
+      "batch": 83,
+      "docs": 2000,
+      "server_ms": 365,
+      "client_ms": 367.87039996124804
+    },
+    {
+      "batch": 84,
+      "docs": 2000,
+      "server_ms": 371,
+      "client_ms": 373.9462000085041
+    },
+    {
+      "batch": 85,
+      "docs": 2000,
+      "server_ms": 361,
+      "client_ms": 363.1824000040069
+    },
+    {
+      "batch": 86,
+      "docs": 2000,
+      "server_ms": 371,
+      "client_ms": 374.0227000089362
+    },
+    {
+      "batch": 87,
+      "docs": 2000,
+      "server_ms": 440,
+      "client_ms": 442.8431000560522
+    },
+    {
+      "batch": 88,
+      "docs": 2000,
+      "server_ms": 571,
+      "client_ms": 574.475200031884
+    },
+    {
+      "batch": 89,
+      "docs": 2000,
+      "server_ms": 715,
+      "client_ms": 718.0825000395998
+    },
+    {
+      "batch": 90,
+      "docs": 2000,
+      "server_ms": 364,
+      "client_ms": 366.56149988994
+    },
+    {
+      "batch": 91,
+      "docs": 2000,
+      "server_ms": 388,
+      "client_ms": 390.9197000321001
+    },
+    {
+      "batch": 92,
+      "docs": 2000,
+      "server_ms": 401,
+      "client_ms": 403.6674000089988
+    },
+    {
+      "batch": 93,
+      "docs": 2000,
+      "server_ms": 416,
+      "client_ms": 418.90729998704046
+    },
+    {
+      "batch": 94,
+      "docs": 2000,
+      "server_ms": 351,
+      "client_ms": 353.8410000037402
+    },
+    {
+      "batch": 95,
+      "docs": 2000,
+      "server_ms": 353,
+      "client_ms": 355.54010001942515
+    },
+    {
+      "batch": 96,
+      "docs": 2000,
+      "server_ms": 419,
+      "client_ms": 421.3180999504402
+    },
+    {
+      "batch": 97,
+      "docs": 2000,
+      "server_ms": 374,
+      "client_ms": 377.14970007073134
+    },
+    {
+      "batch": 98,
+      "docs": 2000,
+      "server_ms": 351,
+      "client_ms": 353.05869998410344
+    },
+    {
+      "batch": 99,
+      "docs": 2000,
+      "server_ms": 463,
+      "client_ms": 466.2460000254214
+    },
+    {
+      "batch": 100,
+      "docs": 2000,
+      "server_ms": 370,
+      "client_ms": 372.47079994995147
+    },
+    {
+      "batch": 101,
+      "docs": 2000,
+      "server_ms": 347,
+      "client_ms": 350.1892000203952
+    },
+    {
+      "batch": 102,
+      "docs": 2000,
+      "server_ms": 432,
+      "client_ms": 434.27630001679063
+    },
+    {
+      "batch": 103,
+      "docs": 2000,
+      "server_ms": 3671,
+      "client_ms": 3673.999199992977
+    },
+    {
+      "batch": 104,
+      "docs": 2000,
+      "server_ms": 339,
+      "client_ms": 342.0121999224648
+    },
+    {
+      "batch": 105,
+      "docs": 2000,
+      "server_ms": 363,
+      "client_ms": 365.2952000265941
+    },
+    {
+      "batch": 106,
+      "docs": 2000,
+      "server_ms": 349,
+      "client_ms": 351.3925999868661
+    },
+    {
+      "batch": 107,
+      "docs": 2000,
+      "server_ms": 338,
+      "client_ms": 340.00229998491704
+    },
+    {
+      "batch": 108,
+      "docs": 2000,
+      "server_ms": 349,
+      "client_ms": 352.2631000960246
+    },
+    {
+      "batch": 109,
+      "docs": 2000,
+      "server_ms": 342,
+      "client_ms": 345.0316999806091
+    },
+    {
+      "batch": 110,
+      "docs": 2000,
+      "server_ms": 386,
+      "client_ms": 389.01070004794747
+    },
+    {
+      "batch": 111,
+      "docs": 2000,
+      "server_ms": 669,
+      "client_ms": 671.1352999554947
+    },
+    {
+      "batch": 112,
+      "docs": 2000,
+      "server_ms": 531,
+      "client_ms": 534.3698000069708
+    },
+    {
+      "batch": 113,
+      "docs": 2000,
+      "server_ms": 405,
+      "client_ms": 407.71329996641725
+    },
+    {
+      "batch": 114,
+      "docs": 2000,
+      "server_ms": 481,
+      "client_ms": 483.6372999707237
+    },
+    {
+      "batch": 115,
+      "docs": 2000,
+      "server_ms": 482,
+      "client_ms": 485.3731000330299
+    },
+    {
+      "batch": 116,
+      "docs": 2000,
+      "server_ms": 533,
+      "client_ms": 535.5170000111684
+    },
+    {
+      "batch": 117,
+      "docs": 2000,
+      "server_ms": 426,
+      "client_ms": 429.0021000197157
+    },
+    {
+      "batch": 118,
+      "docs": 2000,
+      "server_ms": 578,
+      "client_ms": 580.3223999682814
+    },
+    {
+      "batch": 119,
+      "docs": 2000,
+      "server_ms": 549,
+      "client_ms": 552.8325999621302
+    },
+    {
+      "batch": 120,
+      "docs": 2000,
+      "server_ms": 700,
+      "client_ms": 703.0620999867097
+    },
+    {
+      "batch": 121,
+      "docs": 2000,
+      "server_ms": 416,
+      "client_ms": 418.76090003643185
+    },
+    {
+      "batch": 122,
+      "docs": 2000,
+      "server_ms": 421,
+      "client_ms": 423.51170000620186
+    },
+    {
+      "batch": 123,
+      "docs": 2000,
+      "server_ms": 347,
+      "client_ms": 349.3925000075251
+    },
+    {
+      "batch": 124,
+      "docs": 2000,
+      "server_ms": 335,
+      "client_ms": 337.05159998498857
+    },
+    {
+      "batch": 125,
+      "docs": 2000,
+      "server_ms": 336,
+      "client_ms": 338.66530004888773
+    }
+  ]
+}

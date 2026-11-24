@@ -1,0 +1,338 @@
+{
+  "buckets": {
+    "category": {
+      "coast": 17858,
+      "grassland": 2178,
+      "upland": 2128,
+      "urban": 2032,
+      "water": 18183,
+      "woodland": 2135
+    },
+    "region": {
+      "central": 8937,
+      "east": 8893,
+      "north": 8983,
+      "south": 8879,
+      "west": 8822
+    },
+    "year": {
+      "2000": 8840,
+      "2005": 8831,
+      "2010": 8909,
+      "2015": 8951,
+      "2020": 8983
+    }
+  },
+  "sql": {
+    "category": {
+      "count": 44514,
+      "rows": [
+        {
+          "bucket": "coast",
+          "count": 17858
+        },
+        {
+          "bucket": "grassland",
+          "count": 2178
+        },
+        {
+          "bucket": "upland",
+          "count": 2128
+        },
+        {
+          "bucket": "urban",
+          "count": 2032
+        },
+        {
+          "bucket": "water",
+          "count": 18183
+        },
+        {
+          "bucket": "woodland",
+          "count": 2135
+        }
+      ],
+      "query": "SELECT category AS bucket, count(*) FROM field_notes_500000 WHERE year BETWEEN 2000 AND 2024 AND search_vector @@ to_tsquery('english', 'habitat & (wetland | marsh) & !invasive') GROUP BY 1 ORDER BY 1",
+      "result_client_ms": 503.5278999712318,
+      "server_ms": [
+        504.205,
+        541.022,
+        547.398,
+        520.899,
+        505.81,
+        507.485
+      ],
+      "second_ms": 541.022,
+      "median_ms": 520.899
+    },
+    "region": {
+      "count": 44514,
+      "rows": [
+        {
+          "bucket": "central",
+          "count": 8937
+        },
+        {
+          "bucket": "east",
+          "count": 8893
+        },
+        {
+          "bucket": "north",
+          "count": 8983
+        },
+        {
+          "bucket": "south",
+          "count": 8879
+        },
+        {
+          "bucket": "west",
+          "count": 8822
+        }
+      ],
+      "query": "SELECT region AS bucket, count(*) FROM field_notes_500000 WHERE year BETWEEN 2000 AND 2024 AND search_vector @@ to_tsquery('english', 'habitat & (wetland | marsh) & !invasive') GROUP BY 1 ORDER BY 1",
+      "result_client_ms": 506.8461000919342,
+      "server_ms": [
+        498.248,
+        494.985,
+        558.217,
+        512.998,
+        495.028,
+        498.214
+      ],
+      "second_ms": 494.985,
+      "median_ms": 498.214
+    },
+    "year": {
+      "count": 44514,
+      "rows": [
+        {
+          "bucket": 2000,
+          "count": 8840
+        },
+        {
+          "bucket": 2005,
+          "count": 8831
+        },
+        {
+          "bucket": 2010,
+          "count": 8909
+        },
+        {
+          "bucket": 2015,
+          "count": 8951
+        },
+        {
+          "bucket": 2020,
+          "count": 8983
+        }
+      ],
+      "query": "SELECT 2000 + 5 * ((year - 2000) / 5) AS bucket, count(*) FROM field_notes_500000 WHERE year BETWEEN 2000 AND 2024 AND search_vector @@ to_tsquery('english', 'habitat & (wetland | marsh) & !invasive') GROUP BY 1 ORDER BY 1",
+      "result_client_ms": 489.4782999763265,
+      "server_ms": [
+        497.285,
+        504.066,
+        508.719,
+        501.643,
+        497.363,
+        495.941
+      ],
+      "second_ms": 504.066,
+      "median_ms": 501.643
+    }
+  },
+  "grouping_sets": {
+    "count": 44514,
+    "rows": [
+      {
+        "dimension": "category",
+        "bucket": "coast",
+        "count": 17858
+      },
+      {
+        "dimension": "category",
+        "bucket": "grassland",
+        "count": 2178
+      },
+      {
+        "dimension": "category",
+        "bucket": "upland",
+        "count": 2128
+      },
+      {
+        "dimension": "category",
+        "bucket": "urban",
+        "count": 2032
+      },
+      {
+        "dimension": "category",
+        "bucket": "water",
+        "count": 18183
+      },
+      {
+        "dimension": "category",
+        "bucket": "woodland",
+        "count": 2135
+      },
+      {
+        "dimension": "region",
+        "bucket": "central",
+        "count": 8937
+      },
+      {
+        "dimension": "region",
+        "bucket": "east",
+        "count": 8893
+      },
+      {
+        "dimension": "region",
+        "bucket": "north",
+        "count": 8983
+      },
+      {
+        "dimension": "region",
+        "bucket": "south",
+        "count": 8879
+      },
+      {
+        "dimension": "region",
+        "bucket": "west",
+        "count": 8822
+      },
+      {
+        "dimension": "year",
+        "bucket": "2000",
+        "count": 8840
+      },
+      {
+        "dimension": "year",
+        "bucket": "2005",
+        "count": 8831
+      },
+      {
+        "dimension": "year",
+        "bucket": "2010",
+        "count": 8909
+      },
+      {
+        "dimension": "year",
+        "bucket": "2015",
+        "count": 8951
+      },
+      {
+        "dimension": "year",
+        "bucket": "2020",
+        "count": 8983
+      }
+    ],
+    "query": "SELECT CASE WHEN GROUPING(category) = 0 THEN 'category'\n            WHEN GROUPING(region) = 0 THEN 'region' ELSE 'year' END AS dimension,\n       COALESCE(category, region, (2000 + 5 * ((year - 2000) / 5))::text) AS bucket,\n       count(*)\nFROM field_notes_500000 WHERE year BETWEEN 2000 AND 2024 AND search_vector @@ to_tsquery('english', 'habitat & (wetland | marsh) & !invasive')\nGROUP BY GROUPING SETS ((category), (region), (2000 + 5 * ((year - 2000) / 5)))\nORDER BY 1, 2",
+    "result_client_ms": 520.7035999046639,
+    "server_ms": [
+      532.995,
+      521.38,
+      527.308,
+      520.225,
+      520.92,
+      523.201
+    ],
+    "second_ms": 521.38,
+    "median_ms": 521.38
+  },
+  "sql_sum_ms": [
+    1499.738,
+    1540.073,
+    1614.334,
+    1535.54,
+    1498.201,
+    1501.6399999999999
+  ],
+  "sql_sum_median_ms": 1535.54,
+  "solr": {
+    "count": 44514,
+    "result": {
+      "responseHeader": {
+        "zkConnected": true,
+        "status": 0,
+        "QTime": 20
+      },
+      "response": {
+        "numFound": 44514,
+        "start": 0,
+        "maxScore": 11.1264305,
+        "numFoundExact": true,
+        "docs": []
+      },
+      "facet_counts": {
+        "facet_queries": {},
+        "facet_fields": {
+          "category": [
+            "coast",
+            17858,
+            "grassland",
+            2178,
+            "upland",
+            2128,
+            "urban",
+            2032,
+            "water",
+            18183,
+            "woodland",
+            2135
+          ],
+          "region": [
+            "central",
+            8937,
+            "east",
+            8893,
+            "north",
+            8983,
+            "south",
+            8879,
+            "west",
+            8822
+          ]
+        },
+        "facet_ranges": {
+          "year": {
+            "counts": [
+              "2000",
+              8840,
+              "2005",
+              8831,
+              "2010",
+              8909,
+              "2015",
+              8951,
+              "2020",
+              8983
+            ],
+            "gap": 5,
+            "start": 2000,
+            "end": 2025
+          }
+        },
+        "facet_intervals": {},
+        "facet_heatmaps": {}
+      }
+    },
+    "query": "http://127.0.0.1:18983/solr/lab3_500000/select?q=habitat+AND+%28wetland+OR+marsh%29+AND+NOT+invasive&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=0&wt=json&facet=true&facet.field=category&facet.field=region&facet.range=year&facet.range.start=2000&facet.range.end=2025&facet.range.gap=5&facet.range.hardend=true&facet.mincount=1&facet.sort=index",
+    "server_ms": [
+      187,
+      44,
+      24,
+      24,
+      20,
+      20
+    ],
+    "client_ms": [
+      189.3358000088483,
+      51.51240003760904,
+      27.39889989607036,
+      26.893100002780557,
+      21.810299949720502,
+      21.993099944666028
+    ],
+    "second_ms": 44,
+    "median_ms": 24,
+    "median_client_ms": 26.893100002780557
+  }
+}

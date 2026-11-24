@@ -1,0 +1,37 @@
+{
+  "source": "generate.py",
+  "license": "CC0-1.0",
+  "seed": 732391,
+  "records": 500000,
+  "bytes": 335685609,
+  "sha256": "3ce8a1a6ee6d4372b0e563209768e659650bf6f0d6c4a1d26156a49803b25d7d",
+  "body_chars_mean": 608.18057,
+  "body_chars_min": 360,
+  "body_chars_max": 1150,
+  "duplicate_bodies": 0,
+  "categories": {
+    "water": 83607,
+    "upland": 83343,
+    "woodland": 83437,
+    "grassland": 83189,
+    "urban": 83155,
+    "coast": 83269
+  },
+  "regions": {
+    "central": 100364,
+    "west": 100034,
+    "south": 99358,
+    "north": 100274,
+    "east": 99970
+  },
+  "year_min": 1995,
+  "year_max": 2024,
+  "example": {
+    "id": 1,
+    "title": "Stream crossing survey at Willow Bank",
+    "body": "Staff returned to the stream crossing at Willow Bank after an overnight storm to review the previous season’s notes. Within a survey area of 89 square metres, they marked 37 places for a closer look during the next visit. The site map now shows where the previous crew ended its survey, which should help the next group repeat the same route. A narrow strip of ground was left alone. The group expects spring growth to make it easier to identify the plants along that strip. Work was delayed while the group found a dry place to spread out the maps and checked the route with staff from the visitor centre. The field log will be compared with the spring survey before the route is opened to visitors again.",
+    "category": "water",
+    "region": "central",
+    "year": 1999
+  }
+}

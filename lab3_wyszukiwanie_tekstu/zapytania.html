@@ -1,0 +1,11 @@
+<!doctype html>
+<html lang="pl"><meta charset="utf-8"><title>Zapytania Solra</title>
+<h1>Laboratorium 3 – zapytania do Solra</h1>
+<p>Po uruchomieniu Solra i załadowaniu 500 000 dokumentów kliknij odnośnik, aby otworzyć odpowiedź JSON.</p>
+<ol>
+<li><a href="http://127.0.0.1:18983/solr/lab3_500000/select?q=restore&amp;fq=year%3A%5B2000+TO+2024%5D&amp;defType=edismax&amp;qf=title%5E3+body&amp;fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&amp;sort=score+desc%2Cid+asc&amp;rows=10&amp;wt=json&amp;hl=true&amp;hl.fl=body&amp;hl.method=unified&amp;hl.snippets=1">Q1 restore</a></li>
+<li><a href="http://127.0.0.1:18983/solr/lab3_500000/select?q=%22solar+panel%22&amp;fq=year%3A%5B2000+TO+2024%5D&amp;defType=edismax&amp;qf=title%5E3+body&amp;fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&amp;sort=score+desc%2Cid+asc&amp;rows=10&amp;wt=json&amp;hl=true&amp;hl.fl=body&amp;hl.method=unified&amp;hl.snippets=1">Q2 &quot;solar panel&quot;</a></li>
+<li><a href="http://127.0.0.1:18983/solr/lab3_500000/select?q=habitat+AND+%28wetland+OR+marsh%29+AND+NOT+invasive&amp;fq=year%3A%5B2000+TO+2024%5D&amp;defType=edismax&amp;qf=title%5E3+body&amp;fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&amp;sort=score+desc%2Cid+asc&amp;rows=10&amp;wt=json&amp;hl=true&amp;hl.fl=body&amp;hl.method=unified&amp;hl.snippets=1">Q3 habitat AND (wetland OR marsh) AND NOT invasive</a></li>
+<li><a href="http://127.0.0.1:18983/solr/lab3_500000/select?q=habitat+AND+%28wetland+OR+marsh%29+AND+NOT+invasive&amp;fq=year%3A%5B2000+TO+2024%5D&amp;defType=edismax&amp;qf=title%5E3+body&amp;fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&amp;sort=score+desc%2Cid+asc&amp;rows=0&amp;wt=json&amp;facet=true&amp;facet.field=category&amp;facet.field=region&amp;facet.range=year&amp;facet.range.start=2000&amp;facet.range.end=2025&amp;facet.range.gap=5&amp;facet.range.hardend=true&amp;facet.mincount=1&amp;facet.sort=index">Q3 – trzy facety</a></li>
+</ol>
+</html>

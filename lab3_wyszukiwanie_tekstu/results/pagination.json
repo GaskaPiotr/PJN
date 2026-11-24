@@ -1,0 +1,494 @@
+{
+  "1000": {
+    "offset": 1000,
+    "rows": 1000,
+    "ids_equal": true,
+    "page_id_sha256": "1b891b3dc403e7024c04da9d291fdd900a1ec36a259e3d77ee44f556c730c819",
+    "earlier_requests": 1,
+    "earlier_client_ms": 110.37980008404702,
+    "start": {
+      "samples": [
+        {
+          "approach": "start",
+          "run": 1,
+          "warmup": true,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=1000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "031043",
+          "last": "062459",
+          "qtime_ms": 100,
+          "client_ms": 115.59479997958988
+        },
+        {
+          "approach": "start",
+          "run": 2,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=1000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "031043",
+          "last": "062459",
+          "qtime_ms": 43,
+          "client_ms": 58.762399945408106
+        },
+        {
+          "approach": "start",
+          "run": 3,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=1000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "031043",
+          "last": "062459",
+          "qtime_ms": 41,
+          "client_ms": 52.021399955265224
+        },
+        {
+          "approach": "start",
+          "run": 4,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=1000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "031043",
+          "last": "062459",
+          "qtime_ms": 33,
+          "client_ms": 42.85550001077354
+        },
+        {
+          "approach": "start",
+          "run": 5,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=1000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "031043",
+          "last": "062459",
+          "qtime_ms": 36,
+          "client_ms": 44.99289998784661
+        },
+        {
+          "approach": "start",
+          "run": 6,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=1000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "031043",
+          "last": "062459",
+          "qtime_ms": 41,
+          "client_ms": 50.57190009392798
+        }
+      ],
+      "qtime_ms": 41,
+      "client_ms": 50.57190009392798
+    },
+    "cursor": {
+      "samples": [
+        {
+          "approach": "cursor",
+          "run": 1,
+          "warmup": true,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJbfCYwMzA5NTM%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "031043",
+          "last": "062459",
+          "qtime_ms": 153,
+          "client_ms": 161.11129999626428
+        },
+        {
+          "approach": "cursor",
+          "run": 2,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJbfCYwMzA5NTM%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "031043",
+          "last": "062459",
+          "qtime_ms": 37,
+          "client_ms": 45.66419997718185
+        },
+        {
+          "approach": "cursor",
+          "run": 3,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJbfCYwMzA5NTM%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "031043",
+          "last": "062459",
+          "qtime_ms": 23,
+          "client_ms": 30.388699960894883
+        },
+        {
+          "approach": "cursor",
+          "run": 4,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJbfCYwMzA5NTM%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "031043",
+          "last": "062459",
+          "qtime_ms": 29,
+          "client_ms": 36.989000043831766
+        },
+        {
+          "approach": "cursor",
+          "run": 5,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJbfCYwMzA5NTM%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "031043",
+          "last": "062459",
+          "qtime_ms": 27,
+          "client_ms": 32.26879995781928
+        },
+        {
+          "approach": "cursor",
+          "run": 6,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJbfCYwMzA5NTM%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "031043",
+          "last": "062459",
+          "qtime_ms": 22,
+          "client_ms": 27.89849997498095
+        }
+      ],
+      "qtime_ms": 27,
+      "client_ms": 32.26879995781928
+    }
+  },
+  "50000": {
+    "offset": 50000,
+    "rows": 1000,
+    "ids_equal": true,
+    "page_id_sha256": "ecac577997f1e69287fd46be990f30a7047a766285c49b728d2a689d20a3e410",
+    "earlier_requests": 50,
+    "earlier_client_ms": 2141.802299884148,
+    "start": {
+      "samples": [
+        {
+          "approach": "start",
+          "run": 1,
+          "warmup": true,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=50000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "008927",
+          "last": "038699",
+          "qtime_ms": 451,
+          "client_ms": 455.6699999375269
+        },
+        {
+          "approach": "start",
+          "run": 2,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=50000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "008927",
+          "last": "038699",
+          "qtime_ms": 353,
+          "client_ms": 365.21090008318424
+        },
+        {
+          "approach": "start",
+          "run": 3,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=50000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "008927",
+          "last": "038699",
+          "qtime_ms": 342,
+          "client_ms": 346.1212000111118
+        },
+        {
+          "approach": "start",
+          "run": 4,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=50000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "008927",
+          "last": "038699",
+          "qtime_ms": 345,
+          "client_ms": 350.1015999354422
+        },
+        {
+          "approach": "start",
+          "run": 5,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=50000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "008927",
+          "last": "038699",
+          "qtime_ms": 355,
+          "client_ms": 359.5490000443533
+        },
+        {
+          "approach": "start",
+          "run": 6,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=50000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "008927",
+          "last": "038699",
+          "qtime_ms": 346,
+          "client_ms": 349.8861000407487
+        }
+      ],
+      "qtime_ms": 346,
+      "client_ms": 350.1015999354422
+    },
+    "cursor": {
+      "samples": [
+        {
+          "approach": "cursor",
+          "run": 1,
+          "warmup": true,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJefCYwMDg5MDk%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "008927",
+          "last": "038699",
+          "qtime_ms": 23,
+          "client_ms": 27.746399980969727
+        },
+        {
+          "approach": "cursor",
+          "run": 2,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJefCYwMDg5MDk%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "008927",
+          "last": "038699",
+          "qtime_ms": 22,
+          "client_ms": 26.346500031650066
+        },
+        {
+          "approach": "cursor",
+          "run": 3,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJefCYwMDg5MDk%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "008927",
+          "last": "038699",
+          "qtime_ms": 22,
+          "client_ms": 26.433999999426305
+        },
+        {
+          "approach": "cursor",
+          "run": 4,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJefCYwMDg5MDk%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "008927",
+          "last": "038699",
+          "qtime_ms": 22,
+          "client_ms": 26.383499964140356
+        },
+        {
+          "approach": "cursor",
+          "run": 5,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJefCYwMDg5MDk%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "008927",
+          "last": "038699",
+          "qtime_ms": 24,
+          "client_ms": 28.3504999242723
+        },
+        {
+          "approach": "cursor",
+          "run": 6,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJefCYwMDg5MDk%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "008927",
+          "last": "038699",
+          "qtime_ms": 23,
+          "client_ms": 27.186400024220347
+        }
+      ],
+      "qtime_ms": 22,
+      "client_ms": 26.433999999426305
+    }
+  },
+  "250000": {
+    "offset": 250000,
+    "rows": 1000,
+    "ids_equal": true,
+    "page_id_sha256": "78aa9b017f86db4b85be86d67f1620af4294ffe0f4335148fe5298d5a1b16af2",
+    "earlier_requests": 250,
+    "earlier_client_ms": 8846.433200174943,
+    "start": {
+      "samples": [
+        {
+          "approach": "start",
+          "run": 1,
+          "warmup": true,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=250000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "011403",
+          "last": "039473",
+          "qtime_ms": 1339,
+          "client_ms": 1343.016600003466
+        },
+        {
+          "approach": "start",
+          "run": 2,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=250000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "011403",
+          "last": "039473",
+          "qtime_ms": 1333,
+          "client_ms": 1336.9635000126436
+        },
+        {
+          "approach": "start",
+          "run": 3,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=250000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "011403",
+          "last": "039473",
+          "qtime_ms": 1331,
+          "client_ms": 1336.0137999989092
+        },
+        {
+          "approach": "start",
+          "run": 4,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=250000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "011403",
+          "last": "039473",
+          "qtime_ms": 1316,
+          "client_ms": 1319.9470000108704
+        },
+        {
+          "approach": "start",
+          "run": 5,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=250000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "011403",
+          "last": "039473",
+          "qtime_ms": 1350,
+          "client_ms": 1354.5572001021355
+        },
+        {
+          "approach": "start",
+          "run": 6,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&start=250000",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "011403",
+          "last": "039473",
+          "qtime_ms": 1344,
+          "client_ms": 1348.3242000220343
+        }
+      ],
+      "qtime_ms": 1333,
+      "client_ms": 1336.9635000126436
+    },
+    "cursor": {
+      "samples": [
+        {
+          "approach": "cursor",
+          "run": 1,
+          "warmup": true,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJafSYwMTEzNjg%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "011403",
+          "last": "039473",
+          "qtime_ms": 30,
+          "client_ms": 34.153099986724555
+        },
+        {
+          "approach": "cursor",
+          "run": 2,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJafSYwMTEzNjg%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "011403",
+          "last": "039473",
+          "qtime_ms": 32,
+          "client_ms": 36.16120002698153
+        },
+        {
+          "approach": "cursor",
+          "run": 3,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJafSYwMTEzNjg%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "011403",
+          "last": "039473",
+          "qtime_ms": 30,
+          "client_ms": 34.25060003064573
+        },
+        {
+          "approach": "cursor",
+          "run": 4,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJafSYwMTEzNjg%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "011403",
+          "last": "039473",
+          "qtime_ms": 30,
+          "client_ms": 34.2782000079751
+        },
+        {
+          "approach": "cursor",
+          "run": 5,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJafSYwMTEzNjg%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "011403",
+          "last": "039473",
+          "qtime_ms": 30,
+          "client_ms": 33.87839999049902
+        },
+        {
+          "approach": "cursor",
+          "run": 6,
+          "warmup": false,
+          "url": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%2A%3A%2A&fl=id%2Cyear&rows=1000&sort=year+asc%2Cid+asc&wt=json&cursorMark=AoJafSYwMTEzNjg%3D",
+          "count": 500000,
+          "page_count": 1000,
+          "first": "011403",
+          "last": "039473",
+          "qtime_ms": 30,
+          "client_ms": 33.944500028155744
+        }
+      ],
+      "qtime_ms": 30,
+      "client_ms": 34.25060003064573
+    }
+  }
+}

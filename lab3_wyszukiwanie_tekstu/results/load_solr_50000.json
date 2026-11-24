@@ -1,0 +1,161 @@
+{
+  "records": 50000,
+  "batch_size": 2000,
+  "upload_ms": 14562.117199995555,
+  "commit_ms": 2438.586000003852,
+  "commit_client_ms": 2438.50950000342,
+  "commit_qtime_ms": 2436,
+  "url": "http://127.0.0.1:18983/solr/lab3_50000/update?wt=json",
+  "batches": [
+    {
+      "batch": 1,
+      "docs": 2000,
+      "server_ms": 1979,
+      "client_ms": 1985.423899954185
+    },
+    {
+      "batch": 2,
+      "docs": 2000,
+      "server_ms": 904,
+      "client_ms": 907.1612000698224
+    },
+    {
+      "batch": 3,
+      "docs": 2000,
+      "server_ms": 577,
+      "client_ms": 579.6830999897793
+    },
+    {
+      "batch": 4,
+      "docs": 2000,
+      "server_ms": 493,
+      "client_ms": 496.7542999656871
+    },
+    {
+      "batch": 5,
+      "docs": 2000,
+      "server_ms": 536,
+      "client_ms": 539.4266999792308
+    },
+    {
+      "batch": 6,
+      "docs": 2000,
+      "server_ms": 621,
+      "client_ms": 625.3019999712706
+    },
+    {
+      "batch": 7,
+      "docs": 2000,
+      "server_ms": 584,
+      "client_ms": 587.7733000088483
+    },
+    {
+      "batch": 8,
+      "docs": 2000,
+      "server_ms": 425,
+      "client_ms": 427.5503000244498
+    },
+    {
+      "batch": 9,
+      "docs": 2000,
+      "server_ms": 374,
+      "client_ms": 376.83830002788454
+    },
+    {
+      "batch": 10,
+      "docs": 2000,
+      "server_ms": 370,
+      "client_ms": 372.8231000714004
+    },
+    {
+      "batch": 11,
+      "docs": 2000,
+      "server_ms": 386,
+      "client_ms": 388.9942999230698
+    },
+    {
+      "batch": 12,
+      "docs": 2000,
+      "server_ms": 379,
+      "client_ms": 381.5642000408843
+    },
+    {
+      "batch": 13,
+      "docs": 2000,
+      "server_ms": 385,
+      "client_ms": 388.1285999668762
+    },
+    {
+      "batch": 14,
+      "docs": 2000,
+      "server_ms": 386,
+      "client_ms": 388.67289992049336
+    },
+    {
+      "batch": 15,
+      "docs": 2000,
+      "server_ms": 424,
+      "client_ms": 427.4122000206262
+    },
+    {
+      "batch": 16,
+      "docs": 2000,
+      "server_ms": 388,
+      "client_ms": 390.98350005224347
+    },
+    {
+      "batch": 17,
+      "docs": 2000,
+      "server_ms": 371,
+      "client_ms": 374.2092000320554
+    },
+    {
+      "batch": 18,
+      "docs": 2000,
+      "server_ms": 368,
+      "client_ms": 370.57699996512383
+    },
+    {
+      "batch": 19,
+      "docs": 2000,
+      "server_ms": 370,
+      "client_ms": 373.3776001026854
+    },
+    {
+      "batch": 20,
+      "docs": 2000,
+      "server_ms": 376,
+      "client_ms": 378.57860000804067
+    },
+    {
+      "batch": 21,
+      "docs": 2000,
+      "server_ms": 423,
+      "client_ms": 426.4139999868348
+    },
+    {
+      "batch": 22,
+      "docs": 2000,
+      "server_ms": 365,
+      "client_ms": 367.52790003083646
+    },
+    {
+      "batch": 23,
+      "docs": 2000,
+      "server_ms": 364,
+      "client_ms": 367.18030006159097
+    },
+    {
+      "batch": 24,
+      "docs": 2000,
+      "server_ms": 366,
+      "client_ms": 368.64389991387725
+    },
+    {
+      "batch": 25,
+      "docs": 2000,
+      "server_ms": 365,
+      "client_ms": 368.7154999934137
+    }
+  ]
+}

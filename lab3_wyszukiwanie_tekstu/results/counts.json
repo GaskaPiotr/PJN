@@ -1,0 +1,719 @@
+{
+  "50000": {
+    "Q1": {
+      "like": {
+        "count": 3782,
+        "rows": [
+          {
+            "count": 3782
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_50000 WHERE year BETWEEN 2000 AND 2024 AND ((lower(title) LIKE '%restore%' OR lower(body) LIKE '%restore%'))",
+        "result_client_ms": 227.15000004973263,
+        "server_ms": [
+          463.991,
+          269.223,
+          246.322,
+          369.092,
+          368.452,
+          278.928
+        ],
+        "second_ms": 269.223,
+        "median_ms": 278.928
+      },
+      "fts": {
+        "count": 6267,
+        "rows": [
+          {
+            "count": 6267
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_50000 WHERE year BETWEEN 2000 AND 2024 AND (search_vector @@ to_tsquery('english', 'restore'))",
+        "result_client_ms": 9.763999958522618,
+        "server_ms": [
+          9.181,
+          9.086,
+          9.279,
+          9.137,
+          9.581,
+          9.528
+        ],
+        "second_ms": 9.086,
+        "median_ms": 9.279
+      },
+      "solr": {
+        "count": 6267,
+        "result": {
+          "responseHeader": {
+            "zkConnected": true,
+            "status": 0,
+            "QTime": 3
+          },
+          "response": {
+            "numFound": 6267,
+            "start": 0,
+            "maxScore": 4.583621,
+            "numFoundExact": true,
+            "docs": []
+          }
+        },
+        "query": "http://127.0.0.1:18983/solr/lab3_50000/select?q=restore&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=0&wt=json",
+        "server_ms": [
+          8,
+          7,
+          6,
+          7,
+          4,
+          3
+        ],
+        "client_ms": [
+          18.61619995906949,
+          10.047600022517145,
+          9.056199924089015,
+          9.808200062252581,
+          6.2243000138551,
+          6.086600013077259
+        ],
+        "second_ms": 7,
+        "median_ms": 6,
+        "median_client_ms": 9.056199924089015
+      }
+    },
+    "Q2": {
+      "like": {
+        "count": 2725,
+        "rows": [
+          {
+            "count": 2725
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_50000 WHERE year BETWEEN 2000 AND 2024 AND ((lower(title) LIKE '%solar panel%' OR lower(body) LIKE '%solar panel%'))",
+        "result_client_ms": 206.68160007335246,
+        "server_ms": [
+          237.561,
+          230.114,
+          259.207,
+          257.739,
+          218.741,
+          217.95
+        ],
+        "second_ms": 230.114,
+        "median_ms": 230.114
+      },
+      "fts": {
+        "count": 2725,
+        "rows": [
+          {
+            "count": 2725
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_50000 WHERE year BETWEEN 2000 AND 2024 AND (search_vector @@ phraseto_tsquery('english', 'solar panel'))",
+        "result_client_ms": 15.837799990549684,
+        "server_ms": [
+          16.462,
+          15.189,
+          15.012,
+          14.975,
+          14.721,
+          15.19
+        ],
+        "second_ms": 15.189,
+        "median_ms": 15.012
+      },
+      "solr": {
+        "count": 2725,
+        "result": {
+          "responseHeader": {
+            "zkConnected": true,
+            "status": 0,
+            "QTime": 11
+          },
+          "response": {
+            "numFound": 2725,
+            "start": 0,
+            "maxScore": 10.590314,
+            "numFoundExact": true,
+            "docs": []
+          }
+        },
+        "query": "http://127.0.0.1:18983/solr/lab3_50000/select?q=%22solar+panel%22&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=0&wt=json",
+        "server_ms": [
+          16,
+          15,
+          9,
+          8,
+          7,
+          11
+        ],
+        "client_ms": [
+          18.07709992863238,
+          17.571400036104023,
+          12.136999983340502,
+          10.951700038276613,
+          10.746899992227554,
+          14.605400036089122
+        ],
+        "second_ms": 15,
+        "median_ms": 9,
+        "median_client_ms": 12.136999983340502
+      }
+    },
+    "Q3": {
+      "like": {
+        "count": 4450,
+        "rows": [
+          {
+            "count": 4450
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_50000 WHERE year BETWEEN 2000 AND 2024 AND ((lower(title) LIKE '%habitat%' OR lower(body) LIKE '%habitat%') AND ((lower(title) LIKE '%wetland%' OR lower(body) LIKE '%wetland%') OR (lower(title) LIKE '%marsh%' OR lower(body) LIKE '%marsh%')) AND NOT (lower(title) LIKE '%invasive%' OR lower(body) LIKE '%invasive%'))",
+        "result_client_ms": 244.50089992024004,
+        "server_ms": [
+          341.171,
+          289.731,
+          239.549,
+          251.124,
+          257.638,
+          270.453
+        ],
+        "second_ms": 289.731,
+        "median_ms": 257.638
+      },
+      "fts": {
+        "count": 4450,
+        "rows": [
+          {
+            "count": 4450
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_50000 WHERE year BETWEEN 2000 AND 2024 AND (search_vector @@ to_tsquery('english', 'habitat & (wetland | marsh) & !invasive'))",
+        "result_client_ms": 9.059299947693944,
+        "server_ms": [
+          8.886,
+          8.737,
+          8.54,
+          8.519,
+          8.705,
+          8.86
+        ],
+        "second_ms": 8.737,
+        "median_ms": 8.705
+      },
+      "solr": {
+        "count": 4450,
+        "result": {
+          "responseHeader": {
+            "zkConnected": true,
+            "status": 0,
+            "QTime": 12
+          },
+          "response": {
+            "numFound": 4450,
+            "start": 0,
+            "maxScore": 11.122644,
+            "numFoundExact": true,
+            "docs": []
+          }
+        },
+        "query": "http://127.0.0.1:18983/solr/lab3_50000/select?q=habitat+AND+%28wetland+OR+marsh%29+AND+NOT+invasive&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=0&wt=json",
+        "server_ms": [
+          7,
+          11,
+          7,
+          11,
+          6,
+          12
+        ],
+        "client_ms": [
+          9.356499998830259,
+          14.284400036558509,
+          10.149099980480969,
+          14.34759993571788,
+          8.842800045385957,
+          14.272299944423139
+        ],
+        "second_ms": 11,
+        "median_ms": 11,
+        "median_client_ms": 14.272299944423139
+      }
+    }
+  },
+  "250000": {
+    "Q1": {
+      "like": {
+        "count": 18746,
+        "rows": [
+          {
+            "count": 18746
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_250000 WHERE year BETWEEN 2000 AND 2024 AND ((lower(title) LIKE '%restore%' OR lower(body) LIKE '%restore%'))",
+        "result_client_ms": 595.3368999762461,
+        "server_ms": [
+          1104.611,
+          670.556,
+          573.302,
+          572.935,
+          572.358,
+          602.5
+        ],
+        "second_ms": 670.556,
+        "median_ms": 573.302
+      },
+      "fts": {
+        "count": 31173,
+        "rows": [
+          {
+            "count": 31173
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_250000 WHERE year BETWEEN 2000 AND 2024 AND (search_vector @@ to_tsquery('english', 'restore'))",
+        "result_client_ms": 49.396099988371134,
+        "server_ms": [
+          537.224,
+          345.841,
+          56.408,
+          57.224,
+          60.171,
+          49.542
+        ],
+        "second_ms": 345.841,
+        "median_ms": 57.224
+      },
+      "solr": {
+        "count": 31173,
+        "result": {
+          "responseHeader": {
+            "zkConnected": true,
+            "status": 0,
+            "QTime": 12
+          },
+          "response": {
+            "numFound": 31173,
+            "start": 0,
+            "maxScore": 4.6453743,
+            "numFoundExact": true,
+            "docs": []
+          }
+        },
+        "query": "http://127.0.0.1:18983/solr/lab3_250000/select?q=restore&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=0&wt=json",
+        "server_ms": [
+          36,
+          27,
+          10,
+          10,
+          10,
+          12
+        ],
+        "client_ms": [
+          38.52740000002086,
+          30.074400012381375,
+          12.231500004418194,
+          12.949600000865757,
+          13.394300010986626,
+          14.415499987080693
+        ],
+        "second_ms": 27,
+        "median_ms": 10,
+        "median_client_ms": 13.394300010986626
+      }
+    },
+    "Q2": {
+      "like": {
+        "count": 13560,
+        "rows": [
+          {
+            "count": 13560
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_250000 WHERE year BETWEEN 2000 AND 2024 AND ((lower(title) LIKE '%solar panel%' OR lower(body) LIKE '%solar panel%'))",
+        "result_client_ms": 628.0171000398695,
+        "server_ms": [
+          637.282,
+          635.774,
+          584.62,
+          605.092,
+          617.407,
+          603.34
+        ],
+        "second_ms": 635.774,
+        "median_ms": 605.092
+      },
+      "fts": {
+        "count": 13560,
+        "rows": [
+          {
+            "count": 13560
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_250000 WHERE year BETWEEN 2000 AND 2024 AND (search_vector @@ phraseto_tsquery('english', 'solar panel'))",
+        "result_client_ms": 81.3207000028342,
+        "server_ms": [
+          317.791,
+          157.379,
+          81.656,
+          80.898,
+          74.102,
+          75.97
+        ],
+        "second_ms": 157.379,
+        "median_ms": 80.898
+      },
+      "solr": {
+        "count": 13560,
+        "result": {
+          "responseHeader": {
+            "zkConnected": true,
+            "status": 0,
+            "QTime": 18
+          },
+          "response": {
+            "numFound": 13560,
+            "start": 0,
+            "maxScore": 10.652813,
+            "numFoundExact": true,
+            "docs": []
+          }
+        },
+        "query": "http://127.0.0.1:18983/solr/lab3_250000/select?q=%22solar+panel%22&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=0&wt=json",
+        "server_ms": [
+          35,
+          29,
+          17,
+          20,
+          18,
+          18
+        ],
+        "client_ms": [
+          37.32340002898127,
+          32.30530000291765,
+          19.389200024306774,
+          23.334400029852986,
+          20.318199996836483,
+          21.231599966995418
+        ],
+        "second_ms": 29,
+        "median_ms": 18,
+        "median_client_ms": 21.231599966995418
+      }
+    },
+    "Q3": {
+      "like": {
+        "count": 22233,
+        "rows": [
+          {
+            "count": 22233
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_250000 WHERE year BETWEEN 2000 AND 2024 AND ((lower(title) LIKE '%habitat%' OR lower(body) LIKE '%habitat%') AND ((lower(title) LIKE '%wetland%' OR lower(body) LIKE '%wetland%') OR (lower(title) LIKE '%marsh%' OR lower(body) LIKE '%marsh%')) AND NOT (lower(title) LIKE '%invasive%' OR lower(body) LIKE '%invasive%'))",
+        "result_client_ms": 1047.517400002107,
+        "server_ms": [
+          1022.57,
+          979.047,
+          1004.741,
+          996.397,
+          1150.537,
+          1021.578
+        ],
+        "second_ms": 979.047,
+        "median_ms": 1004.741
+      },
+      "fts": {
+        "count": 22233,
+        "rows": [
+          {
+            "count": 22233
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_250000 WHERE year BETWEEN 2000 AND 2024 AND (search_vector @@ to_tsquery('english', 'habitat & (wetland | marsh) & !invasive'))",
+        "result_client_ms": 56.39260006137192,
+        "server_ms": [
+          147.2,
+          43.039,
+          47.753,
+          52.599,
+          43.345,
+          50.402
+        ],
+        "second_ms": 43.039,
+        "median_ms": 47.753
+      },
+      "solr": {
+        "count": 22233,
+        "result": {
+          "responseHeader": {
+            "zkConnected": true,
+            "status": 0,
+            "QTime": 15
+          },
+          "response": {
+            "numFound": 22233,
+            "start": 0,
+            "maxScore": 11.108741,
+            "numFoundExact": true,
+            "docs": []
+          }
+        },
+        "query": "http://127.0.0.1:18983/solr/lab3_250000/select?q=habitat+AND+%28wetland+OR+marsh%29+AND+NOT+invasive&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=0&wt=json",
+        "server_ms": [
+          18,
+          20,
+          17,
+          15,
+          16,
+          15
+        ],
+        "client_ms": [
+          20.347599987871945,
+          23.513699998147786,
+          19.892699900083244,
+          18.328599981032312,
+          18.347000004723668,
+          18.343200092203915
+        ],
+        "second_ms": 20,
+        "median_ms": 16,
+        "median_client_ms": 18.347000004723668
+      }
+    }
+  },
+  "500000": {
+    "Q1": {
+      "like": {
+        "count": 37674,
+        "rows": [
+          {
+            "count": 37674
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_500000 WHERE year BETWEEN 2000 AND 2024 AND ((lower(title) LIKE '%restore%' OR lower(body) LIKE '%restore%'))",
+        "result_client_ms": 1014.815800008364,
+        "server_ms": [
+          1752.726,
+          1043.597,
+          1120.528,
+          1017.375,
+          992.325,
+          1006.191
+        ],
+        "second_ms": 1043.597,
+        "median_ms": 1017.375
+      },
+      "fts": {
+        "count": 62565,
+        "rows": [
+          {
+            "count": 62565
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_500000 WHERE year BETWEEN 2000 AND 2024 AND (search_vector @@ to_tsquery('english', 'restore'))",
+        "result_client_ms": 612.6585999736562,
+        "server_ms": [
+          601.636,
+          601.858,
+          600.394,
+          602.242,
+          600.828,
+          612.531
+        ],
+        "second_ms": 601.858,
+        "median_ms": 601.858
+      },
+      "solr": {
+        "count": 62565,
+        "result": {
+          "responseHeader": {
+            "zkConnected": true,
+            "status": 0,
+            "QTime": 8
+          },
+          "response": {
+            "numFound": 62565,
+            "start": 0,
+            "maxScore": 4.6584573,
+            "numFoundExact": true,
+            "docs": []
+          }
+        },
+        "query": "http://127.0.0.1:18983/solr/lab3_500000/select?q=restore&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=0&wt=json",
+        "server_ms": [
+          18,
+          9,
+          8,
+          8,
+          8,
+          8
+        ],
+        "client_ms": [
+          19.978299969807267,
+          11.81569998152554,
+          10.40540006943047,
+          10.43060002848506,
+          10.411800001747906,
+          10.1015999680385
+        ],
+        "second_ms": 9,
+        "median_ms": 8,
+        "median_client_ms": 10.411800001747906
+      }
+    },
+    "Q2": {
+      "like": {
+        "count": 27169,
+        "rows": [
+          {
+            "count": 27169
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_500000 WHERE year BETWEEN 2000 AND 2024 AND ((lower(title) LIKE '%solar panel%' OR lower(body) LIKE '%solar panel%'))",
+        "result_client_ms": 957.4035000987351,
+        "server_ms": [
+          1003.907,
+          943.863,
+          955.385,
+          920.11,
+          921.75,
+          933.744
+        ],
+        "second_ms": 943.863,
+        "median_ms": 933.744
+      },
+      "fts": {
+        "count": 27169,
+        "rows": [
+          {
+            "count": 27169
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_500000 WHERE year BETWEEN 2000 AND 2024 AND (search_vector @@ phraseto_tsquery('english', 'solar panel'))",
+        "result_client_ms": 637.9579999484122,
+        "server_ms": [
+          647.996,
+          622.631,
+          627.896,
+          635.554,
+          638.443,
+          637.115
+        ],
+        "second_ms": 622.631,
+        "median_ms": 635.554
+      },
+      "solr": {
+        "count": 27169,
+        "result": {
+          "responseHeader": {
+            "zkConnected": true,
+            "status": 0,
+            "QTime": 14
+          },
+          "response": {
+            "numFound": 27169,
+            "start": 0,
+            "maxScore": 10.6452055,
+            "numFoundExact": true,
+            "docs": []
+          }
+        },
+        "query": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%22solar+panel%22&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=0&wt=json",
+        "server_ms": [
+          18,
+          18,
+          14,
+          14,
+          15,
+          14
+        ],
+        "client_ms": [
+          20.646000048145652,
+          21.306099952198565,
+          16.000399948097765,
+          16.25889993738383,
+          17.227400094270706,
+          16.083099995739758
+        ],
+        "second_ms": 18,
+        "median_ms": 14,
+        "median_client_ms": 16.25889993738383
+      }
+    },
+    "Q3": {
+      "like": {
+        "count": 44514,
+        "rows": [
+          {
+            "count": 44514
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_500000 WHERE year BETWEEN 2000 AND 2024 AND ((lower(title) LIKE '%habitat%' OR lower(body) LIKE '%habitat%') AND ((lower(title) LIKE '%wetland%' OR lower(body) LIKE '%wetland%') OR (lower(title) LIKE '%marsh%' OR lower(body) LIKE '%marsh%')) AND NOT (lower(title) LIKE '%invasive%' OR lower(body) LIKE '%invasive%'))",
+        "result_client_ms": 1669.5418000454083,
+        "server_ms": [
+          1592.712,
+          1679.412,
+          1711.797,
+          1674.201,
+          1652.061,
+          1640.691
+        ],
+        "second_ms": 1679.412,
+        "median_ms": 1674.201
+      },
+      "fts": {
+        "count": 44514,
+        "rows": [
+          {
+            "count": 44514
+          }
+        ],
+        "query": "SELECT count(*) FROM field_notes_500000 WHERE year BETWEEN 2000 AND 2024 AND (search_vector @@ to_tsquery('english', 'habitat & (wetland | marsh) & !invasive'))",
+        "result_client_ms": 478.55210001580417,
+        "server_ms": [
+          535.352,
+          543.365,
+          471.08,
+          482.323,
+          475.673,
+          476.596
+        ],
+        "second_ms": 543.365,
+        "median_ms": 476.596
+      },
+      "solr": {
+        "count": 44514,
+        "result": {
+          "responseHeader": {
+            "zkConnected": true,
+            "status": 0,
+            "QTime": 15
+          },
+          "response": {
+            "numFound": 44514,
+            "start": 0,
+            "maxScore": 11.1264305,
+            "numFoundExact": true,
+            "docs": []
+          }
+        },
+        "query": "http://127.0.0.1:18983/solr/lab3_500000/select?q=habitat+AND+%28wetland+OR+marsh%29+AND+NOT+invasive&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=0&wt=json",
+        "server_ms": [
+          18,
+          19,
+          15,
+          16,
+          16,
+          15
+        ],
+        "client_ms": [
+          20.29810007661581,
+          21.75880002323538,
+          17.584600020200014,
+          18.229999928735197,
+          18.246699939481914,
+          16.89600001554936
+        ],
+        "second_ms": 19,
+        "median_ms": 16,
+        "median_client_ms": 18.229999928735197
+      }
+    }
+  }
+}

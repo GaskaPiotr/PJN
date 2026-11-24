@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-23T19:01:14+01:00",
+  "hardware": {
+    "drive": "C:",
+    "disk": "WDC WDS500G1B0C-00S6U0",
+    "threads": 8,
+    "cpu": "Intel(R) Core(TM) i5-8300H CPU @ 2.30GHz",
+    "cores": 4,
+    "media": "SSD",
+    "system": "Microsoft Windows 11 Home 10.0.22631",
+    "ram_bytes": 21474836480
+  },
+  "python": "3.12.14",
+  "postgres": {
+    "version": "17.12",
+    "shared_buffers": "256MB",
+    "maintenance_work_mem": "256MB",
+    "max_parallel_workers_per_gather": "2"
+  },
+  "solr": {
+    "version": "10.1.0",
+    "lucene": "10.4.0",
+    "java": "23.0.2 23.0.2+7-58",
+    "heap": "2 GB",
+    "mode": "solrcloud"
+  }
+}

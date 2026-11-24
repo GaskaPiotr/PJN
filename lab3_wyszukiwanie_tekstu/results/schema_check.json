@@ -1,0 +1,6 @@
+{
+  "autoCreateFields": false,
+  "url": "http://127.0.0.1:18983/solr/lab3_500000/update?",
+  "unknown_field": "lab3_unknown_field",
+  "unknown_field_error": "Solr HTTP 400 /solr/lab3_500000/update?: {\n  \"responseHeader\":{\n    \"rf\":1,\n    \"status\":400,\n    \"QTime\":4\n  },\n  \"error\":{\n    \"metadata\":{\n      \"error-class\":\"org.apache.solr.common.SolrException\",\n      \"root-error-class\":\"org.apache.solr.common.SolrException\"\n    },\n    \"errorClass\":\"org.apache.solr.common.SolrException\",\n    \"msg\":\"ERROR: [doc=000001] unknown field 'lab3_unknown_field'\",\n    \"code\":400\n  }\n}"
+}

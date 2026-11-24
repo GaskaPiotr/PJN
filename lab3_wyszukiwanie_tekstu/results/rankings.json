@@ -1,0 +1,826 @@
+{
+  "Q1": {
+    "sql": {
+      "count": 10,
+      "rows": [
+        {
+          "id": 188,
+          "title": "A plan to restore access at Fern Crossing",
+          "category": "upland",
+          "region": "west",
+          "year": 2021,
+          "score": 1.2
+        },
+        {
+          "id": 244,
+          "title": "Restoring the site at Orchard Rise",
+          "category": "grassland",
+          "region": "east",
+          "year": 2000,
+          "score": 1.2
+        },
+        {
+          "id": 259,
+          "title": "A restored section at Ivy Bend",
+          "category": "upland",
+          "region": "south",
+          "year": 2010,
+          "score": 1.2
+        },
+        {
+          "id": 291,
+          "title": "A plan to restore access at Alder Reach",
+          "category": "grassland",
+          "region": "west",
+          "year": 2018,
+          "score": 1.2
+        },
+        {
+          "id": 619,
+          "title": "A plan to restore access at Granite Point",
+          "category": "coast",
+          "region": "east",
+          "year": 2009,
+          "score": 1.2
+        },
+        {
+          "id": 1363,
+          "title": "A restored section at Maple Basin",
+          "category": "upland",
+          "region": "south",
+          "year": 2010,
+          "score": 1.2
+        },
+        {
+          "id": 1558,
+          "title": "Restoring the site at Maple Basin",
+          "category": "upland",
+          "region": "west",
+          "year": 2002,
+          "score": 1.2
+        },
+        {
+          "id": 1815,
+          "title": "A plan to restore access at Hazel Brook",
+          "category": "grassland",
+          "region": "west",
+          "year": 2004,
+          "score": 1.2
+        },
+        {
+          "id": 1817,
+          "title": "A restored section at Orchard Rise",
+          "category": "coast",
+          "region": "north",
+          "year": 2005,
+          "score": 1.2
+        },
+        {
+          "id": 2044,
+          "title": "Restoring the site at Orchard Rise",
+          "category": "grassland",
+          "region": "south",
+          "year": 2013,
+          "score": 1.2
+        }
+      ],
+      "query": "SELECT id, title, category, region, year, ts_rank_cd(search_vector, to_tsquery('english', 'restore')) AS score\nFROM field_notes_500000\nWHERE year BETWEEN 2000 AND 2024 AND search_vector @@ to_tsquery('english', 'restore')\nORDER BY score DESC, id ASC LIMIT 10",
+      "result_client_ms": 856.6840999992564,
+      "server_ms": [
+        872.139,
+        904.607,
+        853.535,
+        849.033,
+        853.205,
+        859.564
+      ],
+      "second_ms": 904.607,
+      "median_ms": 853.535
+    },
+    "solr": {
+      "count": 62565,
+      "result": {
+        "responseHeader": {
+          "zkConnected": true,
+          "status": 0,
+          "QTime": 20
+        },
+        "response": {
+          "numFound": 62565,
+          "start": 0,
+          "maxScore": 4.6584573,
+          "numFoundExact": true,
+          "docs": [
+            {
+              "id": "000063",
+              "title": "Restoring the site at Willow Bank",
+              "category": "woodland",
+              "region": "west",
+              "year": 2012,
+              "score": 4.6584573
+            },
+            {
+              "id": "000130",
+              "title": "A restored section at Elm Ridge",
+              "category": "woodland",
+              "region": "central",
+              "year": 2000,
+              "score": 4.6584573
+            },
+            {
+              "id": "000233",
+              "title": "Restoring the site at Willow Bank",
+              "category": "grassland",
+              "region": "north",
+              "year": 2001,
+              "score": 4.6584573
+            },
+            {
+              "id": "000244",
+              "title": "Restoring the site at Orchard Rise",
+              "category": "grassland",
+              "region": "east",
+              "year": 2000,
+              "score": 4.6584573
+            },
+            {
+              "id": "000259",
+              "title": "A restored section at Ivy Bend",
+              "category": "upland",
+              "region": "south",
+              "year": 2010,
+              "score": 4.6584573
+            },
+            {
+              "id": "000434",
+              "title": "A restored section at Birch Hollow",
+              "category": "urban",
+              "region": "central",
+              "year": 2003,
+              "score": 4.6584573
+            },
+            {
+              "id": "000510",
+              "title": "Restoring the site at Granite Point",
+              "category": "water",
+              "region": "north",
+              "year": 2012,
+              "score": 4.6584573
+            },
+            {
+              "id": "000567",
+              "title": "Restoring the site at Larch Gap",
+              "category": "urban",
+              "region": "south",
+              "year": 2009,
+              "score": 4.6584573
+            },
+            {
+              "id": "000579",
+              "title": "A restored section at Fern Crossing",
+              "category": "urban",
+              "region": "east",
+              "year": 2012,
+              "score": 4.6584573
+            },
+            {
+              "id": "000580",
+              "title": "A restored section at Fern Crossing",
+              "category": "urban",
+              "region": "central",
+              "year": 2012,
+              "score": 4.6584573
+            }
+          ]
+        },
+        "highlighting": {
+          "000063": {
+            "body": [
+              "Within a survey area of 1044 square metres, they marked 45 places for a closer look during the next visit. Local crews are <em>restoring</em> the lower slope and have agreed to return in late spring. "
+            ]
+          },
+          "000130": {
+            "body": [
+              "Several points were checked twice because the boundaries were difficult to read. Crews <em>restored</em> the upper bank last winter and will compare it with the untreated section. "
+            ]
+          },
+          "000233": {
+            "body": [
+              "They measured 1834 square metres of exposed ground and counted 35 clusters of new shoots near the marker posts. Local crews are <em>restoring</em> the lower slope and have agreed to return in late spring. "
+            ]
+          },
+          "000244": {
+            "body": [
+              "<em>Restoring</em> the adjoining area may help the team compare the two approaches. "
+            ]
+          },
+          "000259": {
+            "body": [
+              "<em>Restoring</em> the adjoining area may help the team compare the two approaches. "
+            ]
+          },
+          "000434": {
+            "body": [
+              "Several points were checked twice because the boundaries were difficult to read. Crews <em>restored</em> the upper bank last winter and will compare it with the untreated section. "
+            ]
+          },
+          "000510": {
+            "body": [
+              "They measured 2238 square metres of exposed ground and counted 16 clusters of new shoots near the marker posts. Local crews are <em>restoring</em> the lower slope and have agreed to return in late spring. "
+            ]
+          },
+          "000567": {
+            "body": [
+              "A second group recorded 80 changes along the edge of a 747-square-metre plot and sketched the points on a paper map. Local crews are <em>restoring</em> the lower slope and have agreed to return in late spring. "
+            ]
+          },
+          "000579": {
+            "body": [
+              "The crew compared 37 samples from a plot of 1290 square metres with observations from the previous visit. Crews <em>restored</em> the upper bank last winter and will compare it with the untreated section. "
+            ]
+          },
+          "000580": {
+            "body": [
+              "Within a survey area of 2321 square metres, they marked 75 places for a closer look during the next visit. Crews <em>restored</em> the upper bank last winter and will compare it with the untreated section. "
+            ]
+          }
+        }
+      },
+      "query": "http://127.0.0.1:18983/solr/lab3_500000/select?q=restore&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=10&wt=json&hl=true&hl.fl=body&hl.method=unified&hl.snippets=1",
+      "server_ms": [
+        26,
+        23,
+        21,
+        18,
+        20,
+        20
+      ],
+      "client_ms": [
+        31.972500029951334,
+        27.998700039461255,
+        25.694899959489703,
+        23.438700009137392,
+        25.348499999381602,
+        24.52350000385195
+      ],
+      "second_ms": 23,
+      "median_ms": 20,
+      "median_client_ms": 25.348499999381602
+    },
+    "overlap": [
+      244,
+      259
+    ]
+  },
+  "Q2": {
+    "sql": {
+      "count": 10,
+      "rows": [
+        {
+          "id": 109,
+          "title": "Solar panel inspection at Juniper Hill",
+          "category": "woodland",
+          "region": "south",
+          "year": 2018,
+          "score": 1.1
+        },
+        {
+          "id": 124,
+          "title": "Solar panel inspection at Reed Valley",
+          "category": "coast",
+          "region": "central",
+          "year": 2003,
+          "score": 1.1
+        },
+        {
+          "id": 133,
+          "title": "Solar panel inspection at Maple Basin",
+          "category": "woodland",
+          "region": "central",
+          "year": 2007,
+          "score": 1.1
+        },
+        {
+          "id": 134,
+          "title": "Solar panel inspection at Granite Point",
+          "category": "coast",
+          "region": "west",
+          "year": 2011,
+          "score": 1.1
+        },
+        {
+          "id": 183,
+          "title": "Solar panel inspection at Hazel Brook",
+          "category": "grassland",
+          "region": "north",
+          "year": 2013,
+          "score": 1.1
+        },
+        {
+          "id": 285,
+          "title": "Solar panel inspection at Hazel Brook",
+          "category": "woodland",
+          "region": "west",
+          "year": 2013,
+          "score": 1.1
+        },
+        {
+          "id": 316,
+          "title": "Solar panel inspection at Granite Point",
+          "category": "grassland",
+          "region": "west",
+          "year": 2005,
+          "score": 1.1
+        },
+        {
+          "id": 351,
+          "title": "Solar panel inspection at Larch Gap",
+          "category": "coast",
+          "region": "south",
+          "year": 2008,
+          "score": 1.1
+        },
+        {
+          "id": 545,
+          "title": "Solar panel inspection at Willow Bank",
+          "category": "grassland",
+          "region": "east",
+          "year": 2013,
+          "score": 1.1
+        },
+        {
+          "id": 640,
+          "title": "Solar panel inspection at Reed Valley",
+          "category": "grassland",
+          "region": "central",
+          "year": 2013,
+          "score": 1.1
+        }
+      ],
+      "query": "SELECT id, title, category, region, year, ts_rank_cd(search_vector, phraseto_tsquery('english', 'solar panel')) AS score\nFROM field_notes_500000\nWHERE year BETWEEN 2000 AND 2024 AND search_vector @@ phraseto_tsquery('english', 'solar panel')\nORDER BY score DESC, id ASC LIMIT 10",
+      "result_client_ms": 808.0486000981182,
+      "server_ms": [
+        813.787,
+        795.519,
+        797.531,
+        796.41,
+        798.021,
+        800.134
+      ],
+      "second_ms": 795.519,
+      "median_ms": 797.531
+    },
+    "solr": {
+      "count": 27169,
+      "result": {
+        "responseHeader": {
+          "zkConnected": true,
+          "status": 0,
+          "QTime": 21
+        },
+        "response": {
+          "numFound": 27169,
+          "start": 0,
+          "maxScore": 10.6452055,
+          "numFoundExact": true,
+          "docs": [
+            {
+              "id": "000109",
+              "title": "Solar panel inspection at Juniper Hill",
+              "category": "woodland",
+              "region": "south",
+              "year": 2018,
+              "score": 10.6452055
+            },
+            {
+              "id": "000124",
+              "title": "Solar panel inspection at Reed Valley",
+              "category": "coast",
+              "region": "central",
+              "year": 2003,
+              "score": 10.6452055
+            },
+            {
+              "id": "000133",
+              "title": "Solar panel inspection at Maple Basin",
+              "category": "woodland",
+              "region": "central",
+              "year": 2007,
+              "score": 10.6452055
+            },
+            {
+              "id": "000134",
+              "title": "Solar panel inspection at Granite Point",
+              "category": "coast",
+              "region": "west",
+              "year": 2011,
+              "score": 10.6452055
+            },
+            {
+              "id": "000183",
+              "title": "Solar panel inspection at Hazel Brook",
+              "category": "grassland",
+              "region": "north",
+              "year": 2013,
+              "score": 10.6452055
+            },
+            {
+              "id": "000285",
+              "title": "Solar panel inspection at Hazel Brook",
+              "category": "woodland",
+              "region": "west",
+              "year": 2013,
+              "score": 10.6452055
+            },
+            {
+              "id": "000316",
+              "title": "Solar panel inspection at Granite Point",
+              "category": "grassland",
+              "region": "west",
+              "year": 2005,
+              "score": 10.6452055
+            },
+            {
+              "id": "000351",
+              "title": "Solar panel inspection at Larch Gap",
+              "category": "coast",
+              "region": "south",
+              "year": 2008,
+              "score": 10.6452055
+            },
+            {
+              "id": "000545",
+              "title": "Solar panel inspection at Willow Bank",
+              "category": "grassland",
+              "region": "east",
+              "year": 2013,
+              "score": 10.6452055
+            },
+            {
+              "id": "000640",
+              "title": "Solar panel inspection at Reed Valley",
+              "category": "grassland",
+              "region": "central",
+              "year": 2013,
+              "score": 10.6452055
+            }
+          ]
+        },
+        "highlighting": {
+          "000109": {
+            "body": [
+              "The group hopes to restore access before the next planting season. A <em>solar panel</em> feeds the new pump, although the battery must be checked after cloudy days. "
+            ]
+          },
+          "000124": {
+            "body": [
+              "The crew installed a <em>solar panel</em> beside the instrument shelter and rewired the old gauge. "
+            ]
+          },
+          "000133": {
+            "body": [
+              "Several points were checked twice because the boundaries were difficult to read. Staff moved the <em>solar panel</em> away from the fence to avoid shade from the hedgerow. "
+            ]
+          },
+          "000134": {
+            "body": [
+              "Several points were checked twice because the boundaries were difficult to read. One <em>solar panel</em> still supplies enough power for the logger on clear afternoons. "
+            ]
+          },
+          "000183": {
+            "body": [
+              "Several points were checked twice because the boundaries were difficult to read. Staff moved the <em>solar panel</em> away from the fence to avoid shade from the hedgerow. "
+            ]
+          },
+          "000285": {
+            "body": [
+              "Several points were checked twice because the boundaries were difficult to read. Two <em>solar panels</em> now charge the backup battery during daylight and power the recorder overnight. "
+            ]
+          },
+          "000316": {
+            "body": [
+              "They measured 875 square metres of exposed ground and counted 54 clusters of new shoots near the marker posts. One <em>solar panel</em> still supplies enough power for the logger on clear afternoons. "
+            ]
+          },
+          "000351": {
+            "body": [
+              "A second group recorded 24 changes along the edge of a 216-square-metre plot and sketched the points on a paper map. Staff moved the <em>solar panel</em> away from the fence to avoid shade from the hedgerow. "
+            ]
+          },
+          "000545": {
+            "body": [
+              "The crew installed a <em>solar panel</em> beside the instrument shelter and rewired the old gauge. "
+            ]
+          },
+          "000640": {
+            "body": [
+              "Several points were checked twice because the boundaries were difficult to read. Staff moved the <em>solar panel</em> away from the fence to avoid shade from the hedgerow. "
+            ]
+          }
+        }
+      },
+      "query": "http://127.0.0.1:18983/solr/lab3_500000/select?q=%22solar+panel%22&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=10&wt=json&hl=true&hl.fl=body&hl.method=unified&hl.snippets=1",
+      "server_ms": [
+        28,
+        24,
+        24,
+        22,
+        23,
+        21
+      ],
+      "client_ms": [
+        32.07810001913458,
+        28.487900039181113,
+        28.21079990826547,
+        26.816700003109872,
+        27.16530009638518,
+        24.65130004566163
+      ],
+      "second_ms": 24,
+      "median_ms": 23,
+      "median_client_ms": 27.16530009638518
+    },
+    "overlap": [
+      109,
+      124,
+      133,
+      134,
+      183,
+      285,
+      316,
+      351,
+      545,
+      640
+    ]
+  },
+  "Q3": {
+    "sql": {
+      "count": 10,
+      "rows": [
+        {
+          "id": 58047,
+          "title": "Wetland habitat survey at Cedar Vale",
+          "category": "water",
+          "region": "central",
+          "year": 2019,
+          "score": 1.104914
+        },
+        {
+          "id": 282371,
+          "title": "Wetland habitat survey at Willow Bank",
+          "category": "water",
+          "region": "north",
+          "year": 2011,
+          "score": 1.104914
+        },
+        {
+          "id": 374799,
+          "title": "Wetland habitat survey at Cedar Vale",
+          "category": "water",
+          "region": "east",
+          "year": 2015,
+          "score": 1.104914
+        },
+        {
+          "id": 31518,
+          "title": "Wetland habitat survey at Larch Gap",
+          "category": "water",
+          "region": "south",
+          "year": 2002,
+          "score": 1.1047847
+        },
+        {
+          "id": 75959,
+          "title": "Wetland habitat survey at Reed Valley",
+          "category": "water",
+          "region": "central",
+          "year": 2000,
+          "score": 1.1047847
+        },
+        {
+          "id": 76673,
+          "title": "Wetland habitat survey at Orchard Rise",
+          "category": "water",
+          "region": "south",
+          "year": 2006,
+          "score": 1.1047847
+        },
+        {
+          "id": 78356,
+          "title": "Wetland habitat survey at Larch Gap",
+          "category": "water",
+          "region": "west",
+          "year": 2006,
+          "score": 1.1047847
+        },
+        {
+          "id": 89814,
+          "title": "Wetland habitat survey at Hazel Brook",
+          "category": "water",
+          "region": "south",
+          "year": 2017,
+          "score": 1.1047847
+        },
+        {
+          "id": 157305,
+          "title": "Wetland habitat survey at Ivy Bend",
+          "category": "coast",
+          "region": "north",
+          "year": 2015,
+          "score": 1.1047847
+        },
+        {
+          "id": 170124,
+          "title": "Wetland habitat survey at Fern Crossing",
+          "category": "water",
+          "region": "north",
+          "year": 2017,
+          "score": 1.1047847
+        }
+      ],
+      "query": "SELECT id, title, category, region, year, ts_rank_cd(search_vector, to_tsquery('english', 'habitat & (wetland | marsh) & !invasive')) AS score\nFROM field_notes_500000\nWHERE year BETWEEN 2000 AND 2024 AND search_vector @@ to_tsquery('english', 'habitat & (wetland | marsh) & !invasive')\nORDER BY score DESC, id ASC LIMIT 10",
+      "result_client_ms": 1057.3202000232413,
+      "server_ms": [
+        1090.306,
+        1069.423,
+        1068.018,
+        1077.363,
+        1081.06,
+        1068.506
+      ],
+      "second_ms": 1069.423,
+      "median_ms": 1069.423
+    },
+    "solr": {
+      "count": 44514,
+      "result": {
+        "responseHeader": {
+          "zkConnected": true,
+          "status": 0,
+          "QTime": 28
+        },
+        "response": {
+          "numFound": 44514,
+          "start": 0,
+          "maxScore": 11.1264305,
+          "numFoundExact": true,
+          "docs": [
+            {
+              "id": "271306",
+              "title": "Wetland habitat survey at Alder Reach",
+              "category": "water",
+              "region": "central",
+              "year": 2024,
+              "score": 11.1264305
+            },
+            {
+              "id": "481036",
+              "title": "Wetland habitat survey at Elm Ridge",
+              "category": "upland",
+              "region": "south",
+              "year": 2022,
+              "score": 11.1264305
+            },
+            {
+              "id": "036946",
+              "title": "Wetland habitat survey at Orchard Rise",
+              "category": "coast",
+              "region": "north",
+              "year": 2009,
+              "score": 11.107044
+            },
+            {
+              "id": "047173",
+              "title": "Wetland habitat survey at Juniper Hill",
+              "category": "coast",
+              "region": "east",
+              "year": 2011,
+              "score": 11.107044
+            },
+            {
+              "id": "057116",
+              "title": "Wetland habitat survey at Driftwood Bay",
+              "category": "water",
+              "region": "east",
+              "year": 2021,
+              "score": 11.107044
+            },
+            {
+              "id": "074649",
+              "title": "Wetland habitat survey at Maple Basin",
+              "category": "upland",
+              "region": "south",
+              "year": 2023,
+              "score": 11.107044
+            },
+            {
+              "id": "214057",
+              "title": "Wetland habitat survey at Granite Point",
+              "category": "coast",
+              "region": "west",
+              "year": 2013,
+              "score": 11.107044
+            },
+            {
+              "id": "397010",
+              "title": "Wetland habitat survey at Juniper Hill",
+              "category": "coast",
+              "region": "east",
+              "year": 2006,
+              "score": 11.107044
+            },
+            {
+              "id": "402062",
+              "title": "Wetland habitat survey at Fern Crossing",
+              "category": "water",
+              "region": "central",
+              "year": 2020,
+              "score": 11.107044
+            },
+            {
+              "id": "471680",
+              "title": "Wetland habitat survey at Reed Valley",
+              "category": "water",
+              "region": "east",
+              "year": 2001,
+              "score": 11.107044
+            }
+          ]
+        },
+        "highlighting": {
+          "271306": {
+            "body": [
+              "Several birds use the <em>marsh</em> as feeding <em>habitat</em> during their spring migration. "
+            ]
+          },
+          "481036": {
+            "body": [
+              "Several birds use the <em>marsh</em> as feeding <em>habitat</em> during their spring migration. "
+            ]
+          },
+          "036946": {
+            "body": [
+              "Several birds use the <em>marsh</em> as feeding <em>habitat</em> during their spring migration. "
+            ]
+          },
+          "047173": {
+            "body": [
+              "Farther down the path, the <em>marsh</em> offers sheltered <em>habitat</em> for insects that emerge in spring. "
+            ]
+          },
+          "057116": {
+            "body": [
+              "Several birds use the <em>marsh</em> as feeding <em>habitat</em> during their spring migration. "
+            ]
+          },
+          "074649": {
+            "body": [
+              "Several birds use the <em>marsh</em> as feeding <em>habitat</em> during their spring migration. "
+            ]
+          },
+          "214057": {
+            "body": [
+              "Several birds use the <em>marsh</em> as feeding <em>habitat</em> during their spring migration. "
+            ]
+          },
+          "397010": {
+            "body": [
+              "Farther down the path, the <em>marsh</em> offers sheltered <em>habitat</em> for insects that emerge in spring. "
+            ]
+          },
+          "402062": {
+            "body": [
+              "Several birds use the <em>marsh</em> as feeding <em>habitat</em> during their spring migration. "
+            ]
+          },
+          "471680": {
+            "body": [
+              "Farther down the path, the <em>marsh</em> offers sheltered <em>habitat</em> for insects that emerge in spring. "
+            ]
+          }
+        }
+      },
+      "query": "http://127.0.0.1:18983/solr/lab3_500000/select?q=habitat+AND+%28wetland+OR+marsh%29+AND+NOT+invasive&fq=year%3A%5B2000+TO+2024%5D&defType=edismax&qf=title%5E3+body&fl=id%2Ctitle%2Ccategory%2Cregion%2Cyear%2Cscore&sort=score+desc%2Cid+asc&rows=10&wt=json&hl=true&hl.fl=body&hl.method=unified&hl.snippets=1",
+      "server_ms": [
+        30,
+        26,
+        26,
+        26,
+        27,
+        28
+      ],
+      "client_ms": [
+        33.9507000753656,
+        30.070299981161952,
+        29.958700062707067,
+        29.62310006842017,
+        30.870300019159913,
+        31.270400038920343
+      ],
+      "second_ms": 26,
+      "median_ms": 26,
+      "median_client_ms": 30.070299981161952
+    },
+    "overlap": []
+  }
+}
